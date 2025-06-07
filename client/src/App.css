@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+/* src/index.css or any CSS file you're using */
+.font-edu-sa-hand {
+  font-family: 'Allura', cursive;
+}
+
