@@ -1,9 +1,12 @@
 import { ArrowLeft, Mail, Lock, ArrowRight} from 'lucide-react';
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
+import { useState } from 'react';
+
+const LoginPage = () => {  
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
 
 
-
-const LoginPage = () => {
   return (
     <section className="h-screen grid grid-cols-2">
       <div className="pt-10 pl-48 pr-48">
@@ -21,19 +24,21 @@ const LoginPage = () => {
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
-              type='email'
-              placeholder='Email'
+              type='text'
+              placeholder='Username'
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
             />
           </div>
-
-
           <div className="relative">
             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
               type='password'
               placeholder='Password'
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
             <a href="#" className="absolute right-0 top-1/2 -translate-y-1/2 text-purple-500 text-sm hover:underline">Forgot?</a>
           </div>

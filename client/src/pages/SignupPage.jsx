@@ -1,9 +1,16 @@
 import React from 'react'
 import { ArrowLeft, User, Mail, Lock} from 'lucide-react';
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
+import { useState } from 'react';
+
 
 
 const SignupPage = () => {
+
+  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
   return (
     <section className="h-screen grid grid-cols-2">
       <div className="flex-1  pt-10 pl-48 pr-48 ">
@@ -24,6 +31,8 @@ const SignupPage = () => {
               type='text'
               placeholder='Full Name'
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
+              value={username}
+              onChange={e => setUsername(e.target.value)}
             />
           </div>
 
@@ -33,6 +42,8 @@ const SignupPage = () => {
               type='email'
               placeholder='Email'
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
             />
           </div>
 
@@ -42,15 +53,8 @@ const SignupPage = () => {
               type='password'
               placeholder='Password'
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
-            />
-          </div>
-
-          <div className="relative">
-            <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
-            <input
-              type='password'
-              placeholder='Re-Type Password'
-              className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
             />
           </div>
 
