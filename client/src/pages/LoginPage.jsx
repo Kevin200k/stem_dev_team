@@ -1,11 +1,11 @@
-import { ArrowLeft, Mail, Lock, ArrowRight} from 'lucide-react';
+import { ArrowLeft, Mail, Lock, ArrowRight } from 'lucide-react';
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
 import { useState } from 'react';
+import LoginHalf from '../components/LoginHalf';
 
-const LoginPage = () => {  
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
-
+const LoginPage = () => {
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   return (
     <section className="h-screen grid grid-cols-2">
@@ -43,18 +43,18 @@ const LoginPage = () => {
             <a href="#" className="absolute right-0 top-1/2 -translate-y-1/2 text-purple-500 text-sm hover:underline">Forgot?</a>
           </div>
 
-          <div className="flex flex-col items-center gap-4 mt-8"> 
+          <div className="flex flex-col items-center gap-4 mt-8">
 
             <button
               type="submit"
-              className="bg-purple-500 text-white p-3 w-full max-w-xs rounded-md flex items-center justify-center" 
+              className="bg-purple-500 text-white p-3 w-full max-w-xs rounded-md flex items-center justify-center"
             >
               Log In <ArrowRight size={20} className="ml-2" />
             </button>
 
             <div className="text-gray-600">or</div>
 
-            <div className="flex flex-col gap-3 w-full max-w-xs"> 
+            <div className="flex flex-col gap-3 w-full max-w-xs">
               <button
                 type="button"
                 className="flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500"
@@ -71,13 +71,11 @@ const LoginPage = () => {
               </button>
             </div>
           </div>
-          
+
         </form>
       </div>
 
-      <div>
-
-      </div>
+      <LoginHalf />
     </section>
   );
 };

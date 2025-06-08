@@ -2,6 +2,7 @@ import React from 'react'
 import { ArrowLeft, User, Mail, Lock} from 'lucide-react';
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
 import { useState } from 'react';
+import SignupHalf from '../components/SignupHalf';
 
 
 
@@ -80,9 +81,9 @@ const SignupPage = () => {
           </div>
         </form>
       </div>
-      <div className="flex-1">
-        Half 2
-      </div>
+
+      <SignupHalf />
+      
     </section>
   )
 }
