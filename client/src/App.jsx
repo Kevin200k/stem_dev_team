@@ -14,9 +14,8 @@ const router = createBrowserRouter(
       <Route path='/login' element = { <LoginPage /> } />
       <Route path='/signup' element = { <SignupPage /> } />
       <Route path = 'homepage' element = { <HomePage/> } />
-      <Route path='/' element={ <MainLayout /> }>
-        <Route path='/dashboard' element = { <Dashboard /> } />
-      </Route>
+      <Route path='/' element={ <HomePage /> } />
+      <Route path='/dashboard' element = { <Dashboard /> } />
     </React.Fragment>
   )
 )

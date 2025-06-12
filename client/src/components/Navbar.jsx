@@ -1,44 +1,68 @@
-import React from 'react';
-import { useState } from 'react';
-import { Mic } from 'lucide-react';
-import { Bell } from 'lucide-react';
-import { User } from 'lucide-react';
+import React from 'react'
+import { LayoutDashboard, GraduationCap, BookOpenCheck, Play, Settings, LogOut } from 'lucide-react'
 
 const Navbar = () => {
-
   return (
-    <div className='h-20 grid grid-cols-[1fr_2fr_1fr] max-w-full mx-4 rounded-md bg-white'>
+    // Navbar Container:
+    // - bg-white: Keeps the clean, professional white background.
+    // - ml-4: Maintains the margin from the left edge (or Dashboard side if it's the parent).
+    // - w-56: Sets a fixed width.
+    // - h-full: Ensures it takes 100% of the height from its parent (the flex container in Dashboard.jsx).
+    // - p-4: Adds internal padding.
+    // - flex flex-col justify-between: Stacks items vertically and pushes groups to top/bottom.
+    // - rounded-lg shadow-lg: Adds consistent rounded corners and a prominent shadow for depth.
+    <div className='bg-white ml-4 w-56 h-full p-4 flex flex-col justify-between shadow-lg'>
 
+      {/* Top Navigation Items */}
+      <div className='flex flex-col gap-2'> {/* Added gap for spacing between items */}
 
-      <div className='flex items-center ml-4'>
-        <h1 className='text-3xl text-black font-bold'>LearnHub.Ai</h1>
-      </div>
+        {/* Dashboard Link */}
+        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
+                        text-purple-700 font-semibold
+                        bg-purple-100 shadow-sm'> {/* Active state styling: purple background, bold text, shadow */}
+          <LayoutDashboard size={20}/> {/* Smaller icon for refinement */}
+          <span className='ml-3'>Dashboard</span>
+        </div>
 
+        {/* Courses Link */}
+        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
+                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'> {/* Hover state */}
+          <GraduationCap size={20}/>
+          <span className='ml-3'>Courses</span>
+        </div>
 
-      <div className='flex items-center p-2'>
-        <input
-          type='text'
-          placeholder='Search Courses'
-          className='flex-grow p-2 h-[50px] pl-4 bg-gray-100 rounded-md focus:outline-none text-xl'
-        />
+        {/* Test Me Link */}
+        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
+                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'>
+          <BookOpenCheck size={20}/>
+          <span className='ml-3'>Test Me</span>
+        </div>
 
-        <div className="ml-2 w-[50px] h-[50px] bg-gray-100 rounded-full flex justify-center items-center cursor-pointer hover:bg-gray-200">
-          <Mic color='black'/>
+        {/* Videos Link */}
+        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
+                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'>
+          <Play size={20}/>
+          <span className='ml-3'>Videos</span>
         </div>
       </div>
 
-      <div className='flex items-center justify-end mr-4'>
-
-        <div className='w-[50px] h-[50px] flex items-center justify-center rounded-full cursor-pointer bg-gray-100 hover:bg-gray-200'>
-          <Bell color='black'/>
+      {/* Bottom Navigation Items (Settings, Logout) */}
+      <div className='flex flex-col gap-2'> {/* Added gap for spacing */}
+        {/* Settings Link */}
+        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
+                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'>
+          <Settings size={20}/>
+          <span className='ml-3'>Settings</span>
         </div>
-
-        <div className='w-[50px] h-[50px] flex items-center justify-center rounded-full cursor-pointer ml-4 mr-4 bg-gray-100 hover:bg-gray-200'>
-          <User color='black'/>
+        {/* Logout Link */}
+        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
+                        text-red-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200'> {/* Red for logout */}
+          <LogOut size={20}/>
+          <span className='ml-3'>Logout</span>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar
