@@ -4,7 +4,7 @@ const SignupHalf = () => {
   return (
     <div className="flex-1">
       <div className='relative min-h-screen overflow-hidden'>
-        {/* Your existing shapes */}
+
         <div className='absolute h-[96rem] left-0 w-full bg-purple-500 rotate-4 transform 
         translate-x-[5rem] translate-y-[-5rem] border-2 border-black'>
           
@@ -23,7 +23,6 @@ const SignupHalf = () => {
 
         </div>
         
-        {/* MODIFIED: Inspirational Write-up with attractive design */}
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50
                     bg-white/10 backdrop-blur-sm rounded-lg shadow-xl
                     text-white text-center p-8 w-3/4 max-w-md'>
