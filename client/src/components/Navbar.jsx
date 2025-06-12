@@ -3,24 +3,16 @@ import { LayoutDashboard, GraduationCap, BookOpenCheck, Play, Settings, LogOut }
 
 const Navbar = () => {
   return (
-    // Navbar Container:
-    // - bg-white: Keeps the clean, professional white background.
-    // - ml-4: Maintains the margin from the left edge (or Dashboard side if it's the parent).
-    // - w-56: Sets a fixed width.
-    // - h-full: Ensures it takes 100% of the height from its parent (the flex container in Dashboard.jsx).
-    // - p-4: Adds internal padding.
-    // - flex flex-col justify-between: Stacks items vertically and pushes groups to top/bottom.
-    // - rounded-lg shadow-lg: Adds consistent rounded corners and a prominent shadow for depth.
     <div className='bg-white ml-4 w-56 h-full p-4 flex flex-col justify-between shadow-lg'>
 
       {/* Top Navigation Items */}
-      <div className='flex flex-col gap-2'> {/* Added gap for spacing between items */}
+      <div className='flex flex-col gap-2'>
 
         {/* Dashboard Link */}
         <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
                         text-purple-700 font-semibold
-                        bg-purple-100 shadow-sm'> {/* Active state styling: purple background, bold text, shadow */}
-          <LayoutDashboard size={20}/> {/* Smaller icon for refinement */}
+                        bg-purple-100 shadow-sm'>
+          <LayoutDashboard size={20}/>
           <span className='ml-3'>Dashboard</span>
         </div>
 
@@ -47,7 +39,7 @@ const Navbar = () => {
       </div>
 
       {/* Bottom Navigation Items (Settings, Logout) */}
-      <div className='flex flex-col gap-2'> {/* Added gap for spacing */}
+      <div className='flex flex-col gap-2'> 
         {/* Settings Link */}
         <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
                         text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'>
@@ -56,7 +48,7 @@ const Navbar = () => {
         </div>
         {/* Logout Link */}
         <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
-                        text-red-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200'> {/* Red for logout */}
+                        text-red-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200'>
           <LogOut size={20}/>
           <span className='ml-3'>Logout</span>
         </div>

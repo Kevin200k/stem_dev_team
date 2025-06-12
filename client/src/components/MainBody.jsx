@@ -1,15 +1,14 @@
-import React, { useState } from 'react'; // Import useState
+import React, { useState } from 'react'; 
 import {
-  User, Sun, // General icons
-  Calculator, BookOpen, FlaskConical, History, // Specific course icons
-  PlayCircle, // New icon for 'Continue Watching' section
-} from 'lucide-react'; // Ensure all used icons are imported
+  User, Sun, 
+  Calculator, BookOpen, FlaskConical, History,
+  PlayCircle, 
+} from 'lucide-react'; 
 
 const MainBody = () => {
   const studentProgress = 70;
 
-  // State to simulate if the user has watched videos or not
-  const [hasWatchedVideos, setHasWatchedVideos] = useState(false); // Set to 'true' to see video cards, 'false' for the message
+  const [hasWatchedVideos, setHasWatchedVideos] = useState(false); 
 
   const courses = [
     {
@@ -42,7 +41,6 @@ const MainBody = () => {
     },
   ];
 
-  // Placeholder for "Continue Watching" videos if hasWatchedVideos is true
   const continueWatchingVideos = [
     { id: 1, title: "Algebra Basics: Part 2", course: "Mathematics", thumbnail: 'https://via.placeholder.com/150/9370DB/FFFFFF?text=Math+Video', progress: 75 },
     { id: 2, title: "Poetry Analysis: Stanzas", course: "English Language", thumbnail: 'https://via.placeholder.com/150/8A2BE2/FFFFFF?text=English+Video', progress: 50 },
@@ -81,11 +79,10 @@ const MainBody = () => {
           </div>
         </div>
 
-        {/* Right Column (1fr): Statistics */}
         <div className='bg-white p-6 rounded-lg shadow-md flex flex-col items-stretch'>
           <h1 className='text-3xl font-extrabold text-purple-800 mb-6'>Statistics</h1>
 
-          {/* Vibrant User Card - Strong Purple Gradient */}
+          {/* User Card - using Purple Gradient */}
           <div className='flex flex-col items-center mb-8 bg-gradient-to-r from-purple-700 to-indigo-900 text-white p-6 rounded-lg shadow-xl relative overflow-hidden transform transition-all duration-300 hover:scale-105'>
             <div className='absolute inset-0 opacity-10 pointer-events-none'></div>
             <div className='w-24 h-24 rounded-full flex justify-center items-center bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm mb-4 border-2 border-white'>
@@ -95,7 +92,7 @@ const MainBody = () => {
             <p className='text-md text-purple-100'>It's a great day to learn.</p>
           </div>
 
-          {/* Revamped Fun Progress Bar Section - Purple Themed */}
+          {/* Fun Progress Bar Section */}
           <div className='w-full p-4 bg-purple-50 rounded-lg shadow-inner flex flex-col items-center mb-8'>
             <h2 className='text-xl font-bold text-purple-800 mb-3'>Courses Completed!</h2>
             <div className='relative w-full h-8 bg-gray-200 rounded-full overflow-hidden shadow-md'>
@@ -109,7 +106,6 @@ const MainBody = () => {
             <p className='text-sm text-gray-600 mt-3 text-center'>You're making amazing progress!</p>
           </div>
 
-          {/* Placeholder for another stat card - Strategic Warm Accent */}
           <div className='bg-orange-50 p-4 rounded-lg shadow-sm text-center flex-grow flex items-center justify-center text-orange-800 font-semibold border border-orange-200'>
              <Sun size={24} className="mr-2 text-orange-500"/>
              Upcoming Events & Important Alerts
@@ -119,11 +115,9 @@ const MainBody = () => {
       </div>
 
 
-      {/* New Section: Continue Watching */}
       <div className='mt-6 p-6 bg-white rounded-lg shadow-md'>
         <h2 className='text-xl font-bold text-purple-800 mb-4'>Continue Watching</h2>
         {hasWatchedVideos && continueWatchingVideos.length > 0 ? (
-          // Content when there are videos to continue watching
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
             {continueWatchingVideos.map(video => (
               <div key={video.id} className='bg-purple-50 rounded-lg shadow-sm flex items-center p-3 hover:shadow-md transition-shadow cursor-pointer'>
@@ -143,7 +137,6 @@ const MainBody = () => {
             ))}
           </div>
         ) : (
-          // Content when no videos have been watched
           <div className='flex flex-col items-center justify-center py-8 text-gray-600 bg-purple-50 rounded-lg p-6'>
             <PlayCircle size={60} className='text-purple-400 mb-4' />
             <p className='text-lg font-semibold text-center'>You haven't watched any video yet!</p>
@@ -155,7 +148,6 @@ const MainBody = () => {
         )}
       </div>
 
-      {/* Optional: Footer or another section at the bottom of MainBody */}
       <div className='mt-6 p-4 bg-white rounded-lg shadow-md flex-none'>
         <p className='text-center text-gray-600'>&copy; 2025 LearnHub.AI. All rights reserved.</p>
       </div>
