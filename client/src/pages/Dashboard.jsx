@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
 import MainBody from '../components/MainBody';
 import TitleBar from '../components/TitleBar';
 
@@ -12,7 +12,7 @@ const Dashboard = () => {
       </div>
 
       <section className='flex-grow flex w-full  overflow-hidden'> 
-        <Navbar />
+        <Sidebar />
         <div className='flex-grow overflow-y-auto p-4'>
           <MainBody />
         </div>
