@@ -1,17 +1,20 @@
-from flask import Flask, request, jsonify
-from model_loader import generate_response
+import requests
 
-app = Flask(__name__)
+GROQ_API_KEY = "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"
 
-@app.route("/generate", methods=["POST"])
-def generate():
-    data = request.get_json()
-    prompt = data.get("prompt", "")
-    if not prompt:
-        return jsonify({"error": "No prompt provided"}), 400
+headers = {
+    "Authorization": f"Bearer {GROQ_API_KEY}",
+    "Content-Type": "application/json"
+}
 
-    response = generate_response(prompt)
-    return jsonify({"response": response})
+data = {
+    "model": "llama3-8b-8192",
+    "messages": [
+        {"role": "user", "content": "Hello!"}
+    ]
+}
 
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=10000)
+res = requests.post("https://api.groq.com/openai/v1/chat/completions", headers=headers, json=data)
+
+print(res.status_code)
+print(res.json())
