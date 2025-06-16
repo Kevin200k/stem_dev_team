@@ -1,60 +1,89 @@
-import React from 'react'
-import { LayoutDashboard, GraduationCap, BookOpenCheck, Play, Settings, LogOut } from 'lucide-react'
+import React, { useEffect, useState } from 'react';
 
-const Navbar = () => {
+export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
   return (
-    <div className='bg-white ml-4 w-56 h-full p-4 flex flex-col justify-between shadow-lg'>
-
-      {/* Top Navigation Items */}
-      <div className='flex flex-col gap-2'>
-
-        {/* Dashboard Link */}
-        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
-                        text-purple-700 font-semibold
-                        bg-purple-100 shadow-sm'>
-          <LayoutDashboard size={20}/>
-          <span className='ml-3'>Dashboard</span>
+    <header
+      className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white shadow-lg'
+          : 'bg-transparent border-b-[px] border-[#2b2f62]'
+      }`}
+    >
+      <div className="w-full px-6 md:px-16 lg:px-10 py-5 flex items-center justify-between">
+        <div className={`text-[21px] font-medium transition-colors duration-300 ${
+          scrolled ? 'text-gray-900' : 'text-white'
+        }`}>
+          LearnHub.
+          <span className='text-[#a972ec]'>ai</span>
         </div>
+        <nav className="hidden md:flex space-x-7 font-medium text-[15px]">
+          <a
+            href="#features"
+            className={`transition-colors duration-300 ${
+              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-white hover:text-[#DA70D6]'
+            }`}
+          >
+            Features
+          </a>
+          <a
+            href="#how"
+            className={`transition-colors duration-300 ${
+              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-white hover:text-[#DA70D6]'
+            }`}
+          >
+            How It Works
+          </a>
+          <a
+            href="#pricing"
+            className={`transition-colors duration-300 ${
+              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-white hover:text-[#DA70D6]'
+            }`}
+          >
+            Pricing
+          </a>
+          <a
+            href="#contact"
+            className={`transition-colors duration-300 ${
+              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-white hover:text-[#DA70D6]'
+            }`}
+          >
+            Contact
+          </a>
+        </nav>
+             <div className="flex gap-3">
+          {/* Login Button */}
+          <button
+            className={`px-5 py-1.5 rounded-3xl text-[16px] hover:scale-105 transition border ${
+              scrolled
+                ? 'bg-white text-[#DA70D6] border-[#DA70D6] hover:bg-[#fbe9f3]'
+                : 'bg-transparent text-white border-1 border-transparent hover:bg-white hover:text-[#2b2f62] hover:border-white'
+            }`}
+          >
+            Login
+          </button>
 
-        {/* Courses Link */}
-        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
-                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'> {/* Hover state */}
-          <GraduationCap size={20}/>
-          <span className='ml-3'>Courses</span>
-        </div>
 
-        {/* Test Me Link */}
-        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
-                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'>
-          <BookOpenCheck size={20}/>
-          <span className='ml-3'>Test Me</span>
-        </div>
+          {/* Sign Up Button */}
+       <button
+        className="px-5 py-1.5 text-[16px] text-white bg-gradient-to-tr from-[#9d5aff] to-[#d48cfa] rounded-3xl hover:scale-105 transition w-full h-full"
+      >
+        Sign Up
+      </button>
 
-        {/* Videos Link */}
-        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
-                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'>
-          <Play size={20}/>
-          <span className='ml-3'>Videos</span>
+
+
         </div>
       </div>
-
-      {/* Bottom Navigation Items (Settings, Logout) */}
-      <div className='flex flex-col gap-2'> 
-        {/* Settings Link */}
-        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
-                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'>
-          <Settings size={20}/>
-          <span className='ml-3'>Settings</span>
-        </div>
-        {/* Logout Link */}
-        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
-                        text-red-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200'>
-          <LogOut size={20}/>
-          <span className='ml-3'>Logout</span>
-        </div>
-      </div>
-    </div>
-  )
+    </header>
+  );
 }
-
-export default Navbar
