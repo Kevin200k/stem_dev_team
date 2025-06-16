@@ -4,6 +4,7 @@ import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import Dashboard from './pages/Dashboard'
+import NotFoundPage from './pages/NotFoundPage'
 import MainLayout from './layouts/MainLayout'
 
 
@@ -16,6 +17,7 @@ const router = createBrowserRouter(
       <Route path = 'homepage' element = { <HomePage/> } />
       <Route path='/' element={ <HomePage /> } />
       <Route path='/dashboard' element = { <Dashboard /> } />
+      <Route path='*' element = { <NotFoundPage /> } />
     </React.Fragment>
   )
 )
