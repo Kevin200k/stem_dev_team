@@ -1,6 +1,7 @@
 import { ArrowLeft, Mail, Lock, ArrowRight } from 'lucide-react';
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import LoginHalf from '../components/LoginHalf';
 
 const LoginPage = () => {
@@ -14,7 +15,7 @@ const LoginPage = () => {
           <div className='bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100'>
             <ArrowLeft size={20} className="text-gray-700" />
           </div>
-          <div>Don't have an account? <span className='font-bold text-purple-500 cursor-pointer hover:underline'>Sign Up</span></div>
+          <div>Don't have an account? <NavLink to='/signup'><span className='font-bold text-purple-500 cursor-pointer hover:underline'>Sign Up</span></NavLink></div>
         </div>
         <div className='mt-20'>
           <h1 className='text-4xl font-bold'>Log In</h1>
