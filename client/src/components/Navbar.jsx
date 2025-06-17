@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -63,7 +62,6 @@ export default function Navbar() {
         </nav>
              <div className="flex gap-3">
           {/* Login Button */}
-          <NavLink to='/login'>
           <button
             className={`px-5 py-1.5 rounded-3xl text-[16px] hover:scale-105 transition border ${
               scrolled
@@ -73,17 +71,14 @@ export default function Navbar() {
           >
             Login
           </button>
-          </NavLink>
 
 
           {/* Sign Up Button */}
-        <NavLink to='/signup'>
        <button
         className="px-5 py-1.5 text-[16px] text-white bg-gradient-to-tr from-[#9d5aff] to-[#d48cfa] rounded-3xl hover:scale-105 transition w-full h-full"
       >
         Sign Up
       </button>
-      </NavLink>
 
 
 
