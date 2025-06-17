@@ -4,7 +4,9 @@ import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import Dashboard from './pages/Dashboard'
+import NotFoundPage from './pages/NotFoundPage'
 import MainLayout from './layouts/MainLayout'
+import Courses from './pages/Courses'
 
 
 
@@ -13,9 +15,12 @@ const router = createBrowserRouter(
     <React.Fragment>
       <Route path='/login' element = { <LoginPage /> } />
       <Route path='/signup' element = { <SignupPage /> } />
-      <Route path = 'homepage' element = { <HomePage/> } />
-      <Route path='/' element={ <HomePage /> } />
-      <Route path='/dashboard' element = { <Dashboard /> } />
+      <Route path='/' element={ <MainLayout /> }>
+        <Route path = '/homepage' element = { <HomePage/> } />
+        <Route path='/dashboard' element = { <Dashboard /> } />
+        <Route path='/courses' element = { <Courses /> } />
+      </Route>
+      <Route path='*' element = { <NotFoundPage /> } />
     </React.Fragment>
   )
 )

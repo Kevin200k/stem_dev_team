@@ -2,6 +2,7 @@ import React from 'react'
 import { ArrowLeft, User, Mail, Lock} from 'lucide-react';
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
 import { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import SignupHalf from '../components/SignupHalf';
 
 
@@ -19,8 +20,9 @@ const SignupPage = () => {
           <div className='bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100'>
             <ArrowLeft size={20} className="text-gray-700" />
           </div>
-          <div>Already member? <span className='shadow-sm'>Sign in</span></div>
+          <div>Already member? <NavLink to='/login'><span className='shadow-sm'>Sign in</span></NavLink></div>
         </div>
+
         <div className='mt-20'>
           <h1 className='text-4xl font-bold'>Sign Up</h1>
         </div>
