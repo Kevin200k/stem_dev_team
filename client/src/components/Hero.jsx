@@ -112,8 +112,4 @@ export default function Hero() {
       `}</style>
     </section>
   );
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 6d016cb40055ca2261df3a26c6509b5896e6372b
