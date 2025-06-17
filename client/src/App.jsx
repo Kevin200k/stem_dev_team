@@ -14,9 +14,10 @@ const router = createBrowserRouter(
     <React.Fragment>
       <Route path='/login' element = { <LoginPage /> } />
       <Route path='/signup' element = { <SignupPage /> } />
-      <Route path = 'homepage' element = { <HomePage/> } />
-      <Route path='/' element={ <HomePage /> } />
-      <Route path='/dashboard' element = { <Dashboard /> } />
+      <Route path='/' element={ <MainLayout /> }>
+        <Route path = '/homepage' element = { <HomePage/> } />
+        <Route path='/dashboard' element = { <Dashboard /> } />
+      </Route>
       <Route path='*' element = { <NotFoundPage /> } />
     </React.Fragment>
   )
