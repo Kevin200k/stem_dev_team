@@ -10,12 +10,14 @@ const Sidebar = () => {
       <div className='flex flex-col gap-2'>
 
         {/* Dashboard Link */}
+        <NavLink to='/dashboard'>
         <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
                         text-purple-700 font-semibold
                         bg-purple-100 shadow-sm'>
           <LayoutDashboard size={20}/>
           <span className='ml-3'>Dashboard</span>
         </div>
+        </NavLink> 
 
         {/* Courses Link */}
         <NavLink to='/courses'>

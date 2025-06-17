@@ -11,7 +11,7 @@ const MainLayout = () => {
         <TitleBar />
       </div>
 
-      <section className='flex-grow flex w-full overflow-hidden'> 
+      <section className='flex-grow flex w-full  overflow-hidden'> 
         <Sidebar />
         <div className='flex-grow overflow-y-auto p-4'>
           <Outlet />
