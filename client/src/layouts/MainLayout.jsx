@@ -7,7 +7,7 @@ const MainLayout = () => {
   return (
     <div className='h-screen flex flex-col bg-gray-100'>
 
-      <div className='flex-none'> 
+      <div className='flex-none'>
         <TitleBar />
       </div>
 

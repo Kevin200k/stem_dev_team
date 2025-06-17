@@ -1,5 +1,11 @@
 import React from 'react'
-import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider, Navigate } from 'react-router-dom'
+import { 
+  Route, 
+  Routes, 
+  createBrowserRouter, 
+  createRoutesFromElements, 
+  RouterProvider, 
+  Navigate } from 'react-router-dom'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
@@ -15,8 +21,8 @@ const router = createBrowserRouter(
     <React.Fragment>
       <Route path='/login' element = { <LoginPage /> } />
       <Route path='/signup' element = { <SignupPage /> } />
+      <Route index element = { <HomePage /> } />
       <Route path='/' element={ <MainLayout /> }>
-        <Route path = '/homepage' element = { <HomePage/> } />
         <Route path='/dashboard' element = { <Dashboard /> } />
         <Route path='/courses' element = { <Courses /> } />
       </Route>
