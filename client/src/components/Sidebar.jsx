@@ -1,5 +1,6 @@
 import React from 'react'
 import { LayoutDashboard, GraduationCap, BookOpenCheck, Play, Settings, LogOut } from 'lucide-react'
+import { NavLink } from 'react-router-dom'
 
 const Sidebar = () => {
   return (
@@ -17,11 +18,13 @@ const Sidebar = () => {
         </div>
 
         {/* Courses Link */}
-        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
-                        text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'> {/* Hover state */}
-          <GraduationCap size={20}/>
-          <span className='ml-3'>Courses</span>
-        </div>
+        <NavLink to='/courses'>
+          <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
+                          text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200'> {/* Hover state */}
+            <GraduationCap size={20}/>
+            <span className='ml-3'>Courses</span>
+          </div>
+        </NavLink>
 
         {/* Test Me Link */}
         <div className='h-12 flex items-center p-4 rounded-md cursor-pointer
