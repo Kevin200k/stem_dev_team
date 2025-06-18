@@ -1,6 +1,7 @@
 import React from 'react';
 import { AlertTriangle, Home } from 'lucide-react'; // Import Home icon for navigation
 import TitleBar from '../components/TitleBar';
+import Button from '../components/Button';
 
 const NotFoundPage = () => {
   return (

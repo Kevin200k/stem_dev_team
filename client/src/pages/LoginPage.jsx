@@ -3,6 +3,7 @@ import { BsGoogle, BsFacebook } from 'react-icons/bs';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import LoginHalf from '../components/LoginHalf';
+import Button from '../components/Button'
 
 const LoginPage = () => {
   const [username, setUsername] = useState('');
@@ -14,6 +15,7 @@ const LoginPage = () => {
         <div className='flex justify-between p-2'>
           <div className='bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100'>
             <ArrowLeft size={20} className="text-gray-700" />
+            <Button />
           </div>
           <div>Don't have an account? <NavLink to='/signup'><span className='font-bold text-purple-500 cursor-pointer hover:underline'>Sign Up</span></NavLink></div>
         </div>
