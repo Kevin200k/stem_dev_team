@@ -57,7 +57,7 @@ const StyledWrapper = styled.div`
     opacity: 0;
     color: white;
     font-size: 1.2em;
-    font-weight: 600;
+    font-weight: 400;
     transition-duration: .3s;
   }
   /* hover effect on button width */
