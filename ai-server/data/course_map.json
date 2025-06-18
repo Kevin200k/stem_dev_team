@@ -1,0 +1,9 @@
+{
+  "biology": "biology.json",
+  "english": "english.json",
+  "history": "history.json",
+  "mathematics": "mathematics.json",
+  "physics": "physics.json",
+  "satenglish": "satenglish.json",
+  "satmath": "satmath.json"
+}

@@ -1,0 +1,223 @@
+[
+  {
+    "id": "sat01",
+    "title": "Heart of Algebra",
+    "status": "not-started",
+    "subtopics": [
+      {
+        "heading": "A. Linear Equations (One and Two Variables)",
+        "objectives": [
+          "Solve one-variable linear equations with rational, integer, and decimal coefficients.",
+          "Solve literal equations for a specified variable.",
+          "Apply linear equations to word problems and real-life contexts."
+        ]
+      },
+      {
+        "heading": "B. Linear Inequalities",
+        "objectives": [
+          "Solve and graph inequalities on a number line.",
+          "Interpret solution sets of inequalities.",
+          "Solve compound inequalities (AND/OR statements).",
+          "Solve absolute value inequalities and interpret solutions."
+        ]
+      },
+      {
+        "heading": "C. Linear Functions",
+        "objectives": [
+          "Understand and calculate slope as rate of change.",
+          "Interpret slope and intercepts in context (e.g., economics, motion).",
+          "Represent linear relationships using tables, equations, and graphs.",
+          "Convert between different forms of linear equations (slope-intercept, standard, point-slope)."
+        ]
+      },
+      {
+        "heading": "D. Systems of Linear Equations and Inequalities",
+        "objectives": [
+          "Solve systems using graphing, substitution, and elimination.",
+          "Interpret solution as intersection point.",
+          "Model and solve systems in real-world applications.",
+          "Graph solution regions of systems of inequalities."
+        ]
+      }
+    ],
+    "expected_learning_outcomes": [
+      "Students can solve and graph linear equations and inequalities.",
+      "Students can apply algebraic reasoning to real-life problems.",
+      "Students can model scenarios using linear systems."
+    ]
+  },
+  {
+    "id": "sat02",
+    "title": "Problem Solving & Data Analysis",
+    "status": "not-started",
+    "subtopics": [
+      {
+        "heading": "A. Ratios, Rates, and Proportional Relationships",
+        "objectives": [
+          "Solve problems involving ratios and unit rates.",
+          "Use proportion to scale quantities and solve map or model problems.",
+          "Interpret rates in real-life contexts (e.g., speed, density)."
+        ]
+      },
+      {
+        "heading": "B. Percentages",
+        "objectives": [
+          "Solve problems involving percentage change, increase, decrease, and error.",
+          "Calculate interest (simple and compound).",
+          "Apply percentages to tax, discounts, and commissions."
+        ]
+      },
+      {
+        "heading": "C. Unit Conversion and Dimensional Analysis",
+        "objectives": [
+          "Convert between measurement systems (metric/customary).",
+          "Solve multi-step problems using dimensional analysis."
+        ]
+      },
+      {
+        "heading": "D. Data Interpretation",
+        "objectives": [
+          "Read and interpret bar graphs, line graphs, pie charts, and tables.",
+          "Analyze scatterplots and identify correlations.",
+          "Interpret data distributions: box plots, histograms."
+        ]
+      },
+      {
+        "heading": "E. Descriptive Statistics",
+        "objectives": [
+          "Calculate and interpret mean, median, mode, and range.",
+          "Understand variability: interquartile range and standard deviation."
+        ]
+      },
+      {
+        "heading": "F. Probability",
+        "objectives": [
+          "Calculate probability of simple and compound events.",
+          "Use expected value in decision-making contexts."
+        ]
+      }
+    ],
+    "expected_learning_outcomes": [
+      "Students can extract meaning from various data representations.",
+      "Students can apply ratios, percentages, and probabilities to real-world problems."
+    ]
+  },
+  {
+    "id": "sat03",
+    "title": "Passport to Advanced Math",
+    "status": "not-started",
+    "subtopics": [
+      {
+        "heading": "A. Quadratic Functions and Equations",
+        "objectives": [
+          "Solve quadratics by factoring, completing the square, and quadratic formula.",
+          "Analyze quadratic graphs: vertex, axis of symmetry, maximum/minimum.",
+          "Use the discriminant to determine the nature of roots."
+        ]
+      },
+      {
+        "heading": "B. Polynomial Operations",
+        "objectives": [
+          "Add, subtract, multiply, and divide polynomials.",
+          "Identify end behavior and zeroes of polynomial functions.",
+          "Apply the Remainder and Factor Theorems."
+        ]
+      },
+      {
+        "heading": "C. Exponential Functions",
+        "objectives": [
+          "Model exponential growth and decay.",
+          "Convert between exponential and logarithmic form.",
+          "Compare exponential and linear models."
+        ]
+      },
+      {
+        "heading": "D. Rational Expressions & Equations",
+        "objectives": [
+          "Simplify rational expressions.",
+          "Solve rational equations and identify extraneous solutions."
+        ]
+      },
+      {
+        "heading": "E. Radicals and Rational Exponents",
+        "objectives": [
+          "Simplify expressions involving radicals and fractional exponents.",
+          "Solve radical equations."
+        ]
+      },
+      {
+        "heading": "F. Functions: Notation, Composition, and Inverses",
+        "objectives": [
+          "Use and interpret function notation.",
+          "Evaluate and combine functions.",
+          "Find and interpret inverses of functions."
+        ]
+      },
+      {
+        "heading": "G. Nonlinear Systems",
+        "objectives": [
+          "Solve systems involving quadratic and linear functions.",
+          "Graph nonlinear systems and interpret solutions."
+        ]
+      }
+    ],
+    "expected_learning_outcomes": [
+      "Students can manipulate and analyze complex expressions.",
+      "Students can solve and interpret polynomial, exponential, and rational equations.",
+      "Students can apply advanced functions to model problems."
+    ]
+  },
+  {
+    "id": "sat04",
+    "title": "Additional Topics in Math",
+    "status": "not-started",
+    "subtopics": [
+      {
+        "heading": "A. Plane Geometry",
+        "objectives": [
+          "Solve problems involving lines, angles, parallel lines, and transversals.",
+          "Understand triangle properties: congruence, similarity, angle sum.",
+          "Solve with polygon interior/exterior angle properties."
+        ]
+      },
+      {
+        "heading": "B. Circles",
+        "objectives": [
+          "Identify parts of circles: radius, diameter, chords, arcs.",
+          "Apply formulas for circumference and area.",
+          "Solve problems involving arc length and sector area.",
+          "Understand relationships between angles, tangents, and chords."
+        ]
+      },
+      {
+        "heading": "C. Coordinate Geometry",
+        "objectives": [
+          "Use the distance, midpoint, and slope formulas.",
+          "Write equations of lines and analyze graphs.",
+          "Interpret and analyze parabolas and circles in coordinate plane."
+        ]
+      },
+      {
+        "heading": "D. Trigonometry",
+        "objectives": [
+          "Understand and apply SOHCAHTOA.",
+          "Use trigonometric ratios to solve right triangle problems.",
+          "Apply the Pythagorean identity."
+        ]
+      },
+      {
+        "heading": "E. Complex Numbers",
+        "objectives": [
+          "Perform operations with complex numbers.",
+          "Understand and simplify powers of i.",
+          "Solve quadratic equations with complex solutions."
+        ]
+      }
+    ],
+    "expected_learning_outcomes": [
+      "Students can solve geometric and trigonometric problems in plane and coordinate contexts.",
+      "Students can apply geometry and trig to real-world models.",
+      "Students understand the arithmetic and applications of complex numbers."
+    ]
+  }
+]

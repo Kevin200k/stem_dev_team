@@ -1,0 +1,73 @@
+[
+  {
+    "id": "s003t01",
+    "title": "Kinematics: Describing Motion",
+    "status": "completed",
+    "objectives": [
+      "Understand the fundamental concepts of motion: position, displacement, velocity, speed, and acceleration.",
+      "Differentiate between scalar and vector quantities with real-life examples.",
+      "Interpret and construct motion graphs: displacement-time, velocity-time, and acceleration-time graphs.",
+      "Analyze motion using gradient and area under curves in velocity-time graphs.",
+      "Apply the four kinematic equations to solve one-dimensional and two-dimensional motion problems.",
+      "Understand free fall motion and the effects of gravity on objects in the absence of air resistance.",
+      "Explain relative motion in one and two dimensions."
+    ]
+  },
+  {
+    "id": "s003t02",
+    "title": "Newton's Laws of Motion",
+    "status": "in-progress",
+    "objectives": [
+      "State and explain Newton’s First, Second, and Third Laws of Motion.",
+      "Differentiate between inertia, mass, and weight, and their relationship to force and acceleration.",
+      "Identify and draw free-body diagrams for various physical situations.",
+      "Solve problems involving balanced and unbalanced forces in both linear and inclined motion.",
+      "Explain real-world examples using each of Newton's laws (e.g., seatbelts, rocket launch, walking).",
+      "Understand frictional forces, tension, and normal forces and their effects on motion.",
+      "Analyze systems with multiple objects connected by strings, pulleys, or acted on by external forces."
+    ]
+  },
+  {
+    "id": "s003t03",
+    "title": "Work, Energy, and Power",
+    "status": "not-started",
+    "objectives": [
+      "Define work done by a constant force and calculate work using the dot product.",
+      "Understand the concept of kinetic energy and potential energy (gravitational and elastic).",
+      "Apply the Work-Energy Theorem to analyze motion in mechanical systems.",
+      "Use conservation of mechanical energy to solve problems involving no non-conservative forces.",
+      "Identify and quantify the effect of friction and air resistance as non-conservative forces.",
+      "Calculate mechanical power and understand its relationship to work and time.",
+      "Differentiate between efficiency, ideal and real machines, and solve problems using efficiency formulas."
+    ]
+  },
+  {
+    "id": "s003t04",
+    "title": "Momentum and Collisions",
+    "status": "not-started",
+    "objectives": [
+      "Define linear momentum and impulse and understand the impulse-momentum theorem.",
+      "Apply the law of conservation of momentum to isolated systems in one and two dimensions.",
+      "Differentiate between elastic, inelastic, and perfectly inelastic collisions with examples.",
+      "Solve real-world collision problems including those with recoil (e.g., firearms, explosions).",
+      "Understand the principles of explosion mechanics and energy dissipation in collisions.",
+      "Interpret momentum-time graphs and calculate impulse from them.",
+      "Use vector addition and diagramming to solve momentum problems involving angles."
+    ]
+  },
+  {
+    "id": "s003t05",
+    "title": "Circular Motion and Gravitation",
+    "status": "not-started",
+    "objectives": [
+      "Understand the concepts of angular displacement, angular velocity, and angular acceleration.",
+      "Relate linear motion quantities to angular motion quantities using radius.",
+      "Explain the requirement for centripetal force and acceleration in uniform circular motion.",
+      "Analyze examples of circular motion in vertical and horizontal planes (e.g., loop-the-loop, car on a track).",
+      "Understand Newton’s Law of Universal Gravitation and apply it to planetary motion.",
+      "Calculate gravitational force between two masses and describe field strength.",
+      "Distinguish between mass and weight in gravitational fields and their variations with altitude.",
+      "Explain orbital motion, satellite mechanics, and Kepler’s Laws qualitatively and quantitatively."
+    ]
+  }
+]
