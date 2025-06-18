@@ -17,7 +17,8 @@ import MathematicsCourse from './pages/MathematicsCourse'
 import EnglishCourse from './pages/EnglishCourse'
 import ScienceCourse from './pages/ScienceCourse'
 import History from './pages/History'
-
+import TestMe from './pages/TestMe'
+import Videos from './pages/Videos'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,6 +33,8 @@ const router = createBrowserRouter(
         <Route path='/courses/eng-002' element={ <EnglishCourse /> } />
         <Route path='/courses/sci-003' element={ <ScienceCourse /> } />
         <Route path='/courses/hist-004' element={ <History /> } />
+        <Route path='/testme' element={ <TestMe /> } />
+        <Route path='/videos' element={ <Videos /> } />
       </Route>
       <Route path='*' element = { <NotFoundPage /> } />
     </React.Fragment>
