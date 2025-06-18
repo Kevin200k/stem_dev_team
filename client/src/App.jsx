@@ -13,7 +13,10 @@ import Dashboard from './pages/Dashboard'
 import NotFoundPage from './pages/NotFoundPage'
 import MainLayout from './layouts/MainLayout'
 import Courses from './pages/Courses'
-
+import MathematicsCourse from './pages/MathematicsCourse'
+import EnglishCourse from './pages/EnglishCourse'
+import ScienceCourse from './pages/ScienceCourse'
+import History from './pages/History'
 
 
 const router = createBrowserRouter(
@@ -25,6 +28,10 @@ const router = createBrowserRouter(
       <Route path='/' element={ <MainLayout /> }>
         <Route path='/dashboard' element = { <Dashboard /> } />
         <Route path='/courses' element = { <Courses /> } />
+        <Route path='/courses/math-001' element={ <MathematicsCourse /> } />
+        <Route path='/courses/eng-002' element={ <EnglishCourse /> } />
+        <Route path='/courses/sci-003' element={ <ScienceCourse /> } />
+        <Route path='/courses/hist-004' element={ <History /> } />
       </Route>
       <Route path='*' element = { <NotFoundPage /> } />
     </React.Fragment>

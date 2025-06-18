@@ -8,6 +8,7 @@ import {
   ChevronRight,
   Dna
 } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
 
 const allCourses = [
   {
@@ -248,13 +249,14 @@ const Courses = () => {
                   <TopicItem key={topic.id} topic={topic} />
                 ))}
               </ul>
-              <button
-                className="mt-6 w-full bg-gradient-to-tr from-[#9d5aff] to-[#d48cfa] text-white py-2 rounded-lg font-semibold
-                           hover:from-[#8a4be0] hover:to-[#c378ea] transition-all duration-300 shadow-md hover:shadow-lg"
-                onClick={() => alert(`Starting/Continuing ${selectedCourse.title}`)}
+              <NavLink to={`/courses/${selectedCourse.id}`}>
+                <button
+                className="mt-6 w-full bg-gradient-to-tr from-[#9d5aff] to-[#d48cfa] text-white py-2 rounded-lg font-semibold hover:from-[#8a4be0] hover:to-[#c378ea] transition-all duration-300 shadow-md hover:shadow-lg"
+                // onClick={() => alert(`Starting/Continuing ${selectedCourse.title}`)}
               >
                 {selectedCourse.progress > 0 && selectedCourse.progress < 100 ? 'Continue Overall Course' : 'Start Overall Course'}
               </button>
+              </NavLink>
             </>
           ) : (
             <div className="flex flex-col items-center justify-center h-full text-center text-gray-500 p-4">
