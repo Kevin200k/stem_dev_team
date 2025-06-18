@@ -7,18 +7,28 @@ import Dashboard from './pages/Dashboard'
 import NotFoundPage from './pages/NotFoundPage'
 import MainLayout from './layouts/MainLayout'
 import Courses from './pages/Courses'
-import CourseViewer from './pages/Sample-course-viewer';
-
+import MathematicsCourse from './pages/MathematicsCourse'
+import EnglishCourse from './pages/EnglishCourse'
+import ScienceCourse from './pages/ScienceCourse'
+import History from './pages/History'
+import TestMe from './pages/TestMe'
+import Videos from './pages/Videos'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
-      <Route path='/login' element={<LoginPage />} />
-      <Route path='/signup' element={<SignupPage />} />
-      <Route path='/' element={<MainLayout />}>
-        <Route path='homepage' element={<HomePage />} />
-        <Route path='dashboard' element={<Dashboard />} />
-        <Route path='courses' element={<Courses />} />
+    <React.Fragment>
+      <Route path='/login' element = { <LoginPage /> } />
+      <Route path='/signup' element = { <SignupPage /> } />
+      <Route index element = { <HomePage /> } />
+      <Route path='/' element={ <MainLayout /> }>
+        <Route path='/dashboard' element = { <Dashboard /> } />
+        <Route path='/courses' element = { <Courses /> } />
+        <Route path='/courses/math-001' element={ <MathematicsCourse /> } />
+        <Route path='/courses/eng-002' element={ <EnglishCourse /> } />
+        <Route path='/courses/sci-003' element={ <ScienceCourse /> } />
+        <Route path='/courses/hist-004' element={ <History /> } />
+        <Route path='/testme' element={ <TestMe /> } />
+        <Route path='/videos' element={ <Videos /> } />
       </Route>
       <Route path='*' element={<NotFoundPage />} />
     </>

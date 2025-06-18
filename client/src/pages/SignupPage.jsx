@@ -4,6 +4,7 @@ import { BsGoogle, BsFacebook } from 'react-icons/bs';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import SignupHalf from '../components/SignupHalf';
+import Button from '../components/Button'
 
 
 
@@ -18,7 +19,8 @@ const SignupPage = () => {
       <div className="flex-1  pt-10 pl-48 pr-48 ">
         <div className='flex justify-between p-2'>
           <div className='bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100'>
-            <ArrowLeft size={20} className="text-gray-700" />
+            {/* <ArrowLeft size={20} className="text-gray-700" /> */}
+            <Button />
           </div>
           <div>Already member? <NavLink to='/login'><span className='shadow-sm'>Sign in</span></NavLink></div>
         </div>
