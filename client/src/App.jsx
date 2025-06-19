@@ -31,7 +31,7 @@ const router = createBrowserRouter(
         <Route path='/videos' element={ <Videos /> } />
       </Route>
       <Route path='*' element={<NotFoundPage />} />
-    </>
+    </React.Fragment>
   )
 )
 
