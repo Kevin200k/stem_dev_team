@@ -4,19 +4,14 @@
   font-family: 'Poppins', sans-serif;
   
 }
-/* src/index.css or any CSS file you're using */
-.font-edu-sa-hand {
-  font-family: 'Allura', cursive;
+.ibm-font {
+  font-family: 'IBM Plex Sans', serif;
 }
-.font-poppins {
-  font-family: 'Poppins', sans-serif;
+.border-gradient {
+  border: 2px solid;
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #131b4c, #192153, #21295a);
 }
-
-  .border-gradient {
-    border: 2px solid;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(to right, #131b4c, #192153, #21295a);
-  }
 
  .rounded-b-hero {
   border-bottom-left-radius: 600% 1000px;
