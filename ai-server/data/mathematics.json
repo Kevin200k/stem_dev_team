@@ -1,0 +1,30 @@
+[
+  {
+    "id": "m002t01",
+    "title": "Understanding Limits",
+    "status": "not-started",
+    "objectives": [
+      "Define the concept of a limit and its significance in calculus.",
+      "Evaluate limits graphically, numerically, and analytically.",
+      "Understand one-sided limits and their role in determining function behavior.",
+      "Explore infinite limits and limits at infinity to describe end behavior of functions.",
+      "Identify and interpret discontinuities and their types (removable, jump, infinite).",
+      "Apply the limit laws to simplify and solve complex limit expressions.",
+      "Understand the concept of continuity and how it relates to limits."
+    ]
+  },
+  {
+    "id": "m002t02",
+    "title": "Introduction to Derivatives",
+    "status": "not-started",
+    "objectives": [
+      "Understand the derivative as the instantaneous rate of change and slope of a tangent line.",
+      "Define derivatives using first principles (the limit definition of a derivative).",
+      "Interpret real-world meaning of derivatives in physical and graphical contexts.",
+      "Differentiate basic algebraic functions using limit rules.",
+      "Identify points where a function is not differentiable.",
+      "Explore the relationship between differentiability and continuity.",
+      "Introduce notation for derivatives: Leibniz, Lagrange, and Newton forms."
+    ]
+  }
+]

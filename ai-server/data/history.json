@@ -1,0 +1,50 @@
+[
+  {
+    "id": "h004t01",
+    "title": "Causes of the War",
+    "status": "completed",
+    "objectives": [
+      "Analyze the long-term causes of World War II including the Treaty of Versailles, the Great Depression, and the rise of totalitarian regimes.",
+      "Identify the roles of key leaders (e.g., Hitler, Mussolini, Emperor Hirohito) in the path to global conflict.",
+      "Examine how nationalism, expansionism, and fascism contributed to tensions in Europe and Asia.",
+      "Evaluate the failure of appeasement and the role of the League of Nations.",
+      "Understand the invasion of Poland in 1939 and its immediate trigger effect on the war."
+    ]
+  },
+  {
+    "id": "h004t02",
+    "title": "Major Campaigns (European Theater)",
+    "status": "completed",
+    "objectives": [
+      "Trace the major military campaigns in the European theater: Blitzkrieg, Battle of Britain, Operation Barbarossa, and D-Day.",
+      "Understand the strategic significance of Allied and Axis moves in Western and Eastern Europe.",
+      "Analyze the impact of air warfare, naval blockades, and tank battles on the course of the war.",
+      "Explore the role of resistance movements and underground operations across occupied countries.",
+      "Study the liberation of Paris and the final push into Nazi Germany."
+    ]
+  },
+  {
+    "id": "h004t03",
+    "title": "The Pacific Theater",
+    "status": "completed",
+    "objectives": [
+      "Identify the key battles in the Pacific: Pearl Harbor, Midway, Guadalcanal, Iwo Jima, and Okinawa.",
+      "Understand Japan’s imperial goals and their expansion across Asia.",
+      "Examine the role of island-hopping strategy and its impact on the war’s progression.",
+      "Explore the use of kamikaze tactics and the cultural influences behind them.",
+      "Evaluate the decision to drop atomic bombs on Hiroshima and Nagasaki and the controversy surrounding it."
+    ]
+  },
+  {
+    "id": "h004t04",
+    "title": "Consequences and Aftermath",
+    "status": "in-progress",
+    "objectives": [
+      "Analyze the immediate and long-term consequences of WWII on global politics and society.",
+      "Understand the creation of the United Nations and the beginning of the Cold War.",
+      "Explore the impact of the Holocaust and the Nuremberg Trials in establishing human rights standards.",
+      "Evaluate the economic rebuilding of Europe under the Marshall Plan and Japan’s post-war transformation.",
+      "Examine the decolonization wave and the shifting global balance of power."
+    ]
+  }
+]

@@ -1,0 +1,67 @@
+[
+  {
+    "id": "b001t01",
+    "title": "The Scientific Method",
+    "status": "not-started",
+    "objectives": [
+      "Understand the steps of the scientific method: observation, hypothesis, experimentation, data analysis, and conclusion.",
+      "Differentiate between independent, dependent, and controlled variables in an experiment.",
+      "Develop testable hypotheses and design basic experiments.",
+      "Analyze and interpret data to draw logical conclusions.",
+      "Distinguish between scientific theory and law.",
+      "Apply scientific thinking to real-world problems and case studies."
+    ]
+  },
+  {
+    "id": "b001t02",
+    "title": "Cells: The Basic Unit of Life",
+    "status": "not-started",
+    "objectives": [
+      "Identify the structure and function of major cell organelles (e.g., nucleus, mitochondria, ribosomes).",
+      "Compare and contrast prokaryotic and eukaryotic cells.",
+      "Understand the differences between plant and animal cells.",
+      "Explain the processes of cell membrane transport: diffusion, osmosis, and active transport.",
+      "Introduce cell theory and its historical development.",
+      "Describe how cells reproduce through mitosis and cytokinesis."
+    ]
+  },
+  {
+    "id": "b001t03",
+    "title": "Photosynthesis: Capturing Light Energy",
+    "status": "not-started",
+    "objectives": [
+      "Define photosynthesis and explain its importance in the energy cycle.",
+      "Identify the main structures involved in photosynthesis, especially chloroplasts.",
+      "Write the balanced chemical equation for photosynthesis.",
+      "Explain the role of light, water, and carbon dioxide in the process.",
+      "Differentiate between light-dependent and light-independent (Calvin cycle) reactions.",
+      "Understand how environmental factors affect the rate of photosynthesis."
+    ]
+  },
+  {
+    "id": "b001t04",
+    "title": "Genetics and Heredity",
+    "status": "not-started",
+    "objectives": [
+      "Understand the basic principles of inheritance introduced by Gregor Mendel.",
+      "Explain the function of DNA, genes, and chromosomes in heredity.",
+      "Interpret Punnett squares to predict genetic outcomes.",
+      "Differentiate between dominant and recessive traits.",
+      "Explore real-world examples of inherited traits and genetic disorders.",
+      "Understand the basics of meiosis and its role in genetic variation."
+    ]
+  },
+  {
+    "id": "b001t05",
+    "title": "Ecosystems and Biodiversity",
+    "status": "not-started",
+    "objectives": [
+      "Define ecosystems and describe their components: biotic and abiotic factors.",
+      "Explain energy flow through food chains and food webs.",
+      "Describe the roles of producers, consumers, and decomposers.",
+      "Understand ecological relationships: competition, predation, symbiosis.",
+      "Explain the importance of biodiversity to ecosystem stability and human life.",
+      "Discuss threats to biodiversity and conservation efforts globally and locally."
+    ]
+  }
+]

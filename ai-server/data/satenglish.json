@@ -1,0 +1,146 @@
+[
+  {
+    "id": "e001",
+    "title": "Craft and Structure",
+    "status": "not-started",
+    "subtopics": [
+      {
+        "heading": "Vocabulary in Context",
+        "objectives": [
+          "Determine the meaning of words and phrases in context.",
+          "Identify the tone and connotation of vocabulary used.",
+          "Distinguish between multiple meanings of a word based on sentence usage."
+        ]
+      },
+      {
+        "heading": "Text Structure and Purpose",
+        "objectives": [
+          "Analyze how a text’s structure affects its meaning and impact.",
+          "Understand the function of paragraphs, sentences, and text features.",
+          "Identify the author's purpose or rhetorical strategy."
+        ]
+      },
+      {
+        "heading": "Point of View and Style",
+        "objectives": [
+          "Recognize and analyze the narrator’s or speaker’s point of view.",
+          "Examine how point of view and style contribute to meaning.",
+          "Evaluate the impact of word choice and tone on the reader."
+        ]
+      }
+    ],
+    "expected_learning_outcomes": [
+      "Students can interpret vocabulary and phrases in context.",
+      "Students can analyze text structure and author's craft.",
+      "Students can evaluate tone, style, and point of view."
+    ]
+  },
+  {
+    "id": "e002",
+    "title": "Information and Ideas",
+    "status": "not-started",
+    "subtopics": [
+      {
+        "heading": "Central Ideas and Details",
+        "objectives": [
+          "Identify main ideas and supporting details.",
+          "Summarize key points and arguments from a text.",
+          "Differentiate between essential and nonessential information."
+        ]
+      },
+      {
+        "heading": "Inference and Evidence",
+        "objectives": [
+          "Make logical inferences based on textual evidence.",
+          "Support conclusions with relevant details from the text.",
+          "Determine implications of statements and events in the passage."
+        ]
+      },
+      {
+        "heading": "Data Interpretation in Texts",
+        "objectives": [
+          "Interpret information from charts, graphs, and data in context.",
+          "Integrate quantitative and qualitative data in text analysis.",
+          "Draw conclusions based on combined textual and visual data."
+        ]
+      }
+    ],
+    "expected_learning_outcomes": [
+      "Students can determine central ideas and support them with details.",
+      "Students can make inferences and justify them with evidence.",
+      "Students can interpret visual and textual data combined."
+    ]
+  },
+  {
+    "id": "e003",
+    "title": "Standard English Conventions",
+    "status": "not-started",
+    "subtopics": [
+      {
+        "heading": "Sentence Structure and Boundaries",
+        "objectives": [
+          "Recognize and correct sentence fragments and run-ons.",
+          "Use appropriate sentence boundaries for clarity and grammar.",
+          "Edit for parallel structure and modifier placement."
+        ]
+      },
+      {
+        "heading": "Usage and Agreement",
+        "objectives": [
+          "Ensure subject-verb and pronoun-antecedent agreement.",
+          "Apply correct verb tense and pronoun case.",
+          "Identify and correct commonly confused words and idioms."
+        ]
+      },
+      {
+        "heading": "Punctuation and Mechanics",
+        "objectives": [
+          "Use commas, semicolons, colons, and dashes correctly.",
+          "Apply punctuation rules for lists, compound sentences, and clauses.",
+          "Edit for quotation marks, apostrophes, and capitalization."
+        ]
+      }
+    ],
+    "expected_learning_outcomes": [
+      "Students can construct grammatically correct and clear sentences.",
+      "Students can apply rules of agreement, tense, and pronoun use.",
+      "Students can edit writing for correct punctuation and mechanics."
+    ]
+  },
+  {
+    "id": "e004",
+    "title": "Expression of Ideas",
+    "status": "not-started",
+    "subtopics": [
+      {
+        "heading": "Clarity and Precision",
+        "objectives": [
+          "Revise sentences for clarity and word economy.",
+          "Replace vague language with more precise or relevant wording.",
+          "Edit for redundancy and ambiguity."
+        ]
+      },
+      {
+        "heading": "Organization and Cohesion",
+        "objectives": [
+          "Improve paragraph structure and logical flow.",
+          "Use transitions effectively to connect ideas.",
+          "Organize ideas to enhance coherence and readability."
+        ]
+      },
+      {
+        "heading": "Rhetorical Effectiveness",
+        "objectives": [
+          "Revise texts to improve argumentation and persuasion.",
+          "Evaluate the effectiveness of examples and evidence.",
+          "Choose words and structures that strengthen impact."
+        ]
+      }
+    ],
+    "expected_learning_outcomes": [
+      "Students can revise texts for clarity and relevance.",
+      "Students can organize ideas logically and improve flow.",
+      "Students can strengthen writing for rhetorical impact."
+    ]
+  }
+]
