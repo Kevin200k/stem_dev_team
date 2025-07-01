@@ -59,13 +59,12 @@ exports.verifyCode = (req, res) => {
 };
 
 exports.signup = async (req, res) => {
-  const { email, password, username, learningStyle } = req.body;
+  const { email, password, username } = req.body;
   try {
     const user = await admin.auth().createUser({ email, password, displayName: username });
     await admin.firestore().collection("users").doc(user.uid).set({
       username,
       email,
-      learningStyle: learningStyle || "",
       progress: {},
       createdAt: admin.firestore.FieldValue.serverTimestamp(),
       provider: "email",
