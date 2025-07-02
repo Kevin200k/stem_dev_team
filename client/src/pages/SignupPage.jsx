@@ -33,7 +33,7 @@ const SignupPage = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ email, password, username, learningStyle }),
+        body: JSON.stringify({ email, password, username }),
       });
 
       const data = await response.json();
@@ -95,14 +95,13 @@ const SignupPage = () => {
           <div className="relative">
             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
-              // Dynamically set type based on showPassword state
               type={showPassword ? 'text' : 'password'}
               placeholder='Password'
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
               value={password}
               onChange={e => setPassword(e.target.value)}
             />
-            {/* Eye icon to toggle password visibility */}
+
             {showPassword ? (
               <EyeOff
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer"
@@ -118,15 +117,6 @@ const SignupPage = () => {
             )}
           </div>
 
-          <div className="relative">
-            <input
-              type='text'
-              placeholder='Learning Style (e.g., Visual, Auditory)'
-              className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
-              value={learningStyle}
-              onChange={e => setLearningStyle(e.target.value)}
-            />
-          </div>
 
           {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
 
