@@ -1,16 +1,17 @@
 // Refined Courses Page Component
-import React, { useState } from 'react';
+import React, { useState } from 'react'; // Import useState
 import {
   BookOpen,
   FlaskConical,
   Calculator,
   Landmark,
   ChevronRight,
-  Dna
+  Dna,
+  Plus
 } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
-const allCourses = [
+export const allCourses = [
   {
     id: 'math-001',
     title: 'Fundamentals of Algebra',
@@ -166,7 +167,7 @@ const CourseCard = ({ course, onCourseClick }) => {
       onClick={() => onCourseClick(course)}
     >
       <div className="relative flex-shrink-0 w-24 h-24 md:w-20 md:h-20 rounded-lg overflow-hidden border border-gray-100
-                      flex items-center justify-center bg-gray-50">
+                       flex items-center justify-center bg-gray-50">
         {course.imageUrl ? (
           <img src={course.imageUrl} alt={course.title} className="w-full h-full object-cover" />
         ) : (
@@ -211,6 +212,8 @@ const CourseCard = ({ course, onCourseClick }) => {
 
 const Courses = () => {
   const [selectedCourse, setSelectedCourse] = useState(null);
+  // State to manage the visibility of the "Upload File" tooltip
+  const [showUploadTooltip, setShowUploadTooltip] = useState(false);
 
   const handleCourseClick = (course) => {
     setSelectedCourse(course);
@@ -223,9 +226,9 @@ const Courses = () => {
 
   return (
     <section className="bg-gray-50 min-h-full p-6">
-      <h1 className="text-4xl font-extrabold text-gray-800 mb-8 px-4">Explore Courses</h1>
+      <h1 className="text-4xl font-extrabold text-gray-800 mb-8 px-4">Explore</h1>
 
-      <div className="flex flex-col lg:flex-row gap-8">
+      <div className="flex flex-col lg:flex-row gap-8 relative">
         <div className="lg:w-2/3">
           {Object.entries(coursesByCategory).map(([category, courses]) => (
             <div key={category} className="mb-8">
@@ -251,11 +254,10 @@ const Courses = () => {
               </ul>
               <NavLink to={`/courses/${selectedCourse.id}`}>
                 <button
-                className="mt-6 w-full bg-gradient-to-tr from-[#9d5aff] to-[#d48cfa] text-white py-2 rounded-lg font-semibold hover:from-[#8a4be0] hover:to-[#c378ea] transition-all duration-300 shadow-md hover:shadow-lg"
-                // onClick={() => alert(`Starting/Continuing ${selectedCourse.title}`)}
-              >
-                {selectedCourse.progress > 0 && selectedCourse.progress < 100 ? 'Continue Overall Course' : 'Start Overall Course'}
-              </button>
+                  className="mt-6 w-full bg-gradient-to-tr from-[#9d5aff] to-[#d48cfa] text-white py-2 rounded-lg font-semibold hover:from-[#8a4be0] hover:to-[#c378ea] transition-all duration-300 shadow-md hover:shadow-lg"
+                >
+                  {selectedCourse.progress > 0 && selectedCourse.progress < 100 ? 'Continue Overall Course' : 'Start Overall Course'}
+                </button>
               </NavLink>
             </>
           ) : (
@@ -267,6 +269,27 @@ const Courses = () => {
           )}
         </div>
       </div>
+
+      <NavLink to='/courses/add-file'>
+        {/* Add event handlers to the FAB container */}
+        <div
+          className='h-14 w-14 rounded-full bg-purple-400 absolute right-20 bottom-20 flex justify-center items-center cursor-pointer group'
+          onMouseEnter={() => setShowUploadTooltip(true)}
+          onMouseLeave={() => setShowUploadTooltip(false)}
+        >
+          <div>
+            <Plus color='white' strokeWidth={2} size={30} />
+          </div>
+
+          {/* Conditionally render the tooltip based on showUploadTooltip state */}
+          {showUploadTooltip && (
+            <div className='absolute bottom-full mb-2 p-2 px-3 bg-gray-700 text-white text-xs rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-200'>
+              Upload File
+            </div>
+          )}
+        </div>
+      </NavLink>
+
     </section>
   );
 };
