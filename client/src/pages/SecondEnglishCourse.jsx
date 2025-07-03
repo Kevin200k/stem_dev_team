@@ -1,10 +1,10 @@
 import React from 'react'
 import ComingSoon from '../components/ComingSoon'
 
-const MathematicsCourse = () => {
+const SecondEnglishCourse = () => {
   return (
     <ComingSoon />
   )
 }
 
-export default MathematicsCourse
+export default SecondEnglishCourse

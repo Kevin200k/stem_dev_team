@@ -3,7 +3,8 @@ import {
   User, Sun, 
   Calculator, BookOpen, FlaskConical, History,
   PlayCircle, 
-} from 'lucide-react'; 
+} from 'lucide-react';
+import LeaderBoard from './LeaderBoard';
 
 const MainBody = () => {
   const studentProgress = 70;
@@ -80,7 +81,6 @@ const MainBody = () => {
         </div>
 
         <div className='bg-white p-6 rounded-lg shadow-md flex flex-col items-stretch'>
-          <h1 className='text-3xl font-extrabold text-purple-800 mb-6'>Statistics</h1>
 
           {/* User Card - using Purple Gradient */}
           <div className='flex flex-col items-center mb-8 bg-gradient-to-r from-purple-700 to-indigo-900 text-white p-6 rounded-lg shadow-xl relative overflow-hidden transform transition-all duration-300 hover:scale-105'>
@@ -91,6 +91,8 @@ const MainBody = () => {
             <span className='text-3xl font-bold mb-1'>Welcome, User!</span>
             <p className='text-md text-purple-100'>It's a great day to learn.</p>
           </div>
+
+          <h1 className='text-3xl font-extrabold text-purple-800 mb-6'>Stats</h1>
 
           {/* Fun Progress Bar Section */}
           <div className='w-full p-4 bg-purple-50 rounded-lg shadow-inner flex flex-col items-center mb-8'>
@@ -148,8 +150,10 @@ const MainBody = () => {
         )}
       </div>
 
+      <LeaderBoard />
+
       <div className='mt-6 p-4 bg-white rounded-lg shadow-md flex-none'>
-        <p className='text-center text-gray-600'>&copy; 2025 LearnHub.AI. All rights reserved.</p>
+        <p className='text-center text-gray-600'>&copy; 2025 Levelup.ai All rights reserved.</p>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 import React from 'react'
 import Hero from '../components/Hero'
-import Navbar from '../components/NavBar'
+import Navbar from '../components/Navbar'
 import SecondPage from './SecondPage'
 
 const HomePage = () => {
