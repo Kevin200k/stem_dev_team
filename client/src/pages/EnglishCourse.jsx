@@ -1,8 +1,9 @@
 import React from 'react'
+import ComingSoon from '../components/ComingSoon'
 
 const EnglishCourse = () => {
   return (
-    <div>EnglishCourse</div>
+    <ComingSoon />
   )
 }
 

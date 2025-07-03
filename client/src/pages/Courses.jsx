@@ -270,16 +270,18 @@ const Courses = () => {
         </div>
       </div>
 
-      <NavLink to='/courses/add-file'>
+      <NavLink to='/courses/upload-file'>
         {/* Add event handlers to the FAB container */}
         <div
           className='h-14 w-14 rounded-full bg-purple-400 absolute right-20 bottom-20 flex justify-center items-center cursor-pointer group'
           onMouseEnter={() => setShowUploadTooltip(true)}
           onMouseLeave={() => setShowUploadTooltip(false)}
         >
-          <div>
-            <Plus color='white' strokeWidth={2} size={30} />
-          </div>
+          <Link to='/file-upload'>
+            <div>
+              <Plus color='white' strokeWidth={2} size={30} />
+            </div>
+          </Link>
 
           {/* Conditionally render the tooltip based on showUploadTooltip state */}
           {showUploadTooltip && (

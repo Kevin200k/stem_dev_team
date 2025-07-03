@@ -9,11 +9,14 @@ import MainLayout from './layouts/MainLayout'
 import Courses from './pages/Courses'
 import MathematicsCourse from './pages/MathematicsCourse'
 import SecondMathematicsCourses from './pages/SecondMathematicsCourse'
+import SecondEnglishCourse from './pages/SecondEnglishCourse'
 import EnglishCourse from './pages/EnglishCourse'
-import ScienceCourse from './pages/ScienceCourse'
+import BiologyCourse from './pages/BiologyCourse'
+import PhysicsCourse from './pages/PhysicsCourse'
 import History from './pages/History'
 import TestMe from './pages/TestMe'
 import Videos from './pages/Videos'
+import Addfile from './pages/Addfile'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,11 +30,14 @@ const router = createBrowserRouter(
         <Route path='/courses/math-001' element={ <MathematicsCourse /> } />
         <Route path='/courses/math-001' element={ <MathematicsCourse /> } />
         <Route path='/courses/math-002' element={ <SecondMathematicsCourses /> } />
+        <Route path='/courses/eng-003' element={ <SecondEnglishCourse /> } />
         <Route path='/courses/eng-002' element={ <EnglishCourse /> } />
-        <Route path='/courses/sci-003' element={ <ScienceCourse /> } />
+        <Route path='/courses/bio-001' element={ <BiologyCourse /> } />
+        <Route path='/courses/sci-003' element={ <PhysicsCourse /> } />
         <Route path='/courses/hist-004' element={ <History /> } />
         <Route path='/testme' element={ <TestMe /> } />
         <Route path='/videos' element={ <Videos /> } />
+        <Route path='/file-upload' element={ <Addfile /> } />
       </Route>
       <Route path='*' element={<NotFoundPage />} />
     </React.Fragment>

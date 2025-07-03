@@ -28,6 +28,7 @@ const SignupPage = () => {
     setError(null);
 
     try {
+      console.log('Fetching...')
       const response = await fetch('http://localhost:5000/signup', {
         method: 'POST',
         headers: {
@@ -118,12 +119,15 @@ const SignupPage = () => {
           </div>
 
 
-          {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
+          {error && 
+            <div className='px-3 py-2 rounded-md bg-red-200'>
+              <p className="text-red-500 text-sm font-semibold">{error}</p>
+            </div>}
 
           <div className='flex justify-between items-center mt-4'>
             <button
               type="submit"
-              className="bg-purple-500 text-white p-3 w-36 rounded-md disabled:opacity-50"
+              className="bg-purple-500 text-white p-3 w-36 rounded-md disabled:opacity-50 cursor-pointer"
               disabled={loading}
             >
               {loading ? 'Signing Up...' : 'Sign Up'}
