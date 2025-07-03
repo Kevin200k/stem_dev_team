@@ -37,7 +37,7 @@ const router = createBrowserRouter(
         <Route path='/courses/hist-004' element={ <History /> } />
         <Route path='/testme' element={ <TestMe /> } />
         <Route path='/videos' element={ <Videos /> } />
-        <Route path='/file-upload' element={ <Addfile /> } />
+        <Route path='/courses/file-upload' element={ <Addfile /> } />
       </Route>
       <Route path='*' element={<NotFoundPage />} />
     </React.Fragment>

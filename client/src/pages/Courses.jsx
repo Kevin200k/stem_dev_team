@@ -277,7 +277,7 @@ const Courses = () => {
           onMouseEnter={() => setShowUploadTooltip(true)}
           onMouseLeave={() => setShowUploadTooltip(false)}
         >
-          <Link to='/file-upload'>
+          <Link to='/courses/file-upload'>
             <div>
               <Plus color='white' strokeWidth={2} size={30} />
             </div>
