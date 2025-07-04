@@ -1,15 +1,31 @@
 import React from 'react';
 import { LayoutDashboard, GraduationCap, BookOpenCheck, Play, Settings, LogOut } from 'lucide-react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import ClassMates from './ClassMates';
+import { signOut } from "firebase/auth";
+import { auth } from "../firebase"; // adjust this path if needed
+
 
 const Sidebar = () => {
+
+  const navigate = useNavigate()
 
   const linkClass = ({ isActive }) => {
     const baseStyles = 'h-12 flex items-center p-4 rounded-md cursor-pointer text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200';
     const activeStyles = 'text-purple-700 font-semibold bg-purple-100 shadow-sm';
     return isActive ? `${baseStyles} ${activeStyles}` : baseStyles;
   };
+
+  const handleSignout = async () => {
+    try {
+    await signOut(auth);
+    console.log("User signed out");
+    // Optionally redirect user to login or homepage
+    navigate("/login"); // or wherever you want
+    } catch (error) {
+      console.error("Error signing out:", error);
+    }
+  }
 
   return (
 
@@ -44,10 +60,10 @@ const Sidebar = () => {
           <Settings size={20}/>
           <span className='ml-3'>Settings</span>
         </NavLink>
-        <div className='h-12 flex items-center p-4 rounded-md cursor-pointer text-red-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200'>
-          <LogOut size={20}/>
-          <span className='ml-3'>Logout</span>
-        </div>
+      <div className='h-12 flex items-center p-4 rounded-md cursor-pointer text-red-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200' onClick={handleSignout}>
+        <LogOut size={20}/>
+        <span className='ml-3'>Logout</span>
+      </div>
       </div>
     </div>
   );

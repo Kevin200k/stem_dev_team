@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import ProtectedRoutes from './utils/ProtectedRoutes'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       <Route path='/login' element = { <LoginPage /> } />
       <Route path='/signup' element = { <SignupPage /> } />
       <Route index element = { <HomePage /> } />
+
       <Route path='/' element={ <MainLayout /> }>
         <Route path='/dashboard' element = { <Dashboard /> } />
         <Route path='/courses' element = { <Courses /> } />
