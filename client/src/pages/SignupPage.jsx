@@ -6,12 +6,13 @@ import {
   createUserWithEmailAndPassword,
   signInWithPopup,
   sendEmailVerification,
+  onAuthStateChanged,
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { auth, db, googleProvider, facebookProvider } from '../firebase';
 import SignupHalf from '../components/SignupHalf';
 import Button from '../components/Button';
-import VerifyEmailModal from '../components/VerifyEmailModal'
+import VerifyEmailModal from '../components/VerifyEmailModal';
 
 const SignupPage = () => {
   const [username, setUsername] = useState('');
@@ -20,10 +21,9 @@ const SignupPage = () => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
-
-  const [sendingCode, setSendingCode] = useState(false); // for resend timer
+  const [sendingCode, setSendingCode] = useState(false);
   const [timer, setTimer] = useState(60);
-  const [showVerificationModal, setShowVerificationModal] = useState(false); // control modal
+  const [showVerificationModal, setShowVerificationModal] = useState(false);
   const [verificationEmail, setVerificationEmail] = useState('');
 
   const navigate = useNavigate();
@@ -38,6 +38,22 @@ const SignupPage = () => {
     }
     return () => clearInterval(interval);
   }, [sendingCode, timer]);
+
+  // useEffect(() => {
+  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
+  //     if (user) {
+  //       user.reload().then(() => {
+  //         if (user.emailVerified) {
+  //           console.log('Email verified!');
+  //         } else {
+  //           console.log('Email not yet verified');
+  //         }
+  //       });
+  //     }
+  //   });
+
+  //   return () => unsubscribe();
+  // }, []);
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
@@ -62,8 +78,8 @@ const SignupPage = () => {
 
       await sendEmailVerification(user);
       setSendingCode(true);
-      setVerificationEmail(user.email);       
-      setShowVerificationModal(true);         // open modal over signup
+      setVerificationEmail(user.email);
+      setShowVerificationModal(true);
     } catch (err) {
       setError(err.message);
     } finally {
@@ -71,7 +87,6 @@ const SignupPage = () => {
     }
   };
 
-  // 🟢 Google signup
   const handleGoogleSignup = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -92,7 +107,6 @@ const SignupPage = () => {
     }
   };
 
-  // 🔵 Facebook signup
   const handleFacebookSignup = async () => {
     try {
       const result = await signInWithPopup(auth, facebookProvider);
@@ -115,7 +129,6 @@ const SignupPage = () => {
 
   return (
     <section className="h-screen grid grid-cols-2 relative">
-      {/* ✅ Blur background when modal is showing */}
       <div className={`flex-1 pt-10 pl-48 pr-48 transition-all duration-300 ${showVerificationModal ? 'blur-sm pointer-events-none' : ''}`}>
         <div className='flex justify-between p-2'>
           <div className='bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100'>
@@ -216,14 +229,14 @@ const SignupPage = () => {
 
       <SignupHalf />
 
-      { showVerificationModal && (
+      {showVerificationModal && (
         <section className='fixed inset-0 bg-black/40 backdrop-blur-sm z-50'>
           <div className='fixed inset-0 z-50 flex items-center justify-center'>
-            <VerifyEmailModal />
+            <VerifyEmailModal onClose={() => setShowVerificationModal(false)} />
           </div>
         </section>
       )}
-      
+
     </section>
   );
 };
