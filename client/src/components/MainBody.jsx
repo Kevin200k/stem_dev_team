@@ -1,12 +1,25 @@
-import React, { useState } from 'react'; 
+import React, { useState, useEffect } from 'react'; 
 import {
   User, Sun, 
   Calculator, BookOpen, FlaskConical, History,
   PlayCircle, 
 } from 'lucide-react';
 import LeaderBoard from './LeaderBoard';
+import { auth } from '../firebase'
+import { onAuthStateChanged } from 'firebase/auth';
 
 const MainBody = () => {
+
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+      console.log(`User Details: ${user}`)
+    });
+
+    return () => unsubscribe(); // clean up
+  }, [])
   const studentProgress = 70;
 
   const [hasWatchedVideos, setHasWatchedVideos] = useState(false); 
@@ -88,7 +101,10 @@ const MainBody = () => {
             <div className='w-24 h-24 rounded-full flex justify-center items-center bg-white bg-opacity-20 backdrop-filter backdrop-blur-sm mb-4 border-2 border-white'>
               <User size={60} className="text-white"/>
             </div>
-            <span className='text-3xl font-bold mb-1'>Welcome, User!</span>
+            <span className='text-3xl font-bold mb-1'>
+              Welcome, {user?.displayName || "User"}!
+            </span>
+
             <p className='text-md text-purple-100'>It's a great day to learn.</p>
           </div>
 

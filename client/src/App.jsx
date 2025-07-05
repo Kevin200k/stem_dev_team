@@ -19,6 +19,7 @@ import TestMe from './pages/TestMe'
 import Videos from './pages/Videos'
 import Addfile from './pages/Addfile'
 import Search from './pages/Search'
+import Settings from './pages/Settings'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -43,6 +44,7 @@ const router = createBrowserRouter(
         <Route path='/courses/file-upload' element={ <Addfile /> } />
         <Route path='/search' element={ <Search /> } />
       </Route>
+      <Route path='/settings' element={<Settings />} />
       <Route path='*' element={<NotFoundPage />} />
     </React.Fragment>
   )

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, Moon, X } from 'lucide-react';
 import ToggleButton from '../components/ToggleButton'
+import { NavLink } from 'react-router-dom';
 
 const SettingsModal = ({ onClose, modalRef }) => {
   return (
@@ -21,10 +22,10 @@ const SettingsModal = ({ onClose, modalRef }) => {
 
       <hr className="my-3 border-gray-200" />
 
-      <div className="flex items-center justify-between hover:bg-gray-100 px-4 py-3 rounded-md cursor-pointer transition-colors">
-        <span className="text-gray-700 font-medium">All Settings</span>
-        <ArrowRight className="text-gray-500" size={18} />
-      </div>
+      <NavLink to='/settings' className="flex items-center justify-between hover:bg-gray-100 px-4 py-3 rounded-md cursor-pointer transition-colors" onClick={onClose}>
+          <span className="text-gray-700 font-medium">All Settings</span>
+          <ArrowRight className="text-gray-500" size={18} />
+      </NavLink>
 
       <hr className="my-3 border-gray-200" />
 
