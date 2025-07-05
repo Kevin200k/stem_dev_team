@@ -37,7 +37,7 @@ const router = createBrowserRouter(
         <Route path='/courses/bio-001' element={ <BiologyCourse /> } />
         <Route path='/courses/sci-003' element={ <PhysicsCourse /> } />
         <Route path='/courses/hist-004' element={ <History /> } />
-        <Route path='/testme' element={ <TestMe /> } />
+        <Route path='/test-me' element={ <TestMe /> } />
         <Route path='/videos' element={ <Videos /> } />
         <Route path='/courses/file-upload' element={ <Addfile /> } />
       </Route>
