@@ -2,12 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const admin = require("firebase-admin");
 
-// Firebase Admin Initialization
-admin.initializeApp({
-  credential: admin.credential.cert(require("./serviceAccountKey.json")),
-});
+// Import Firebase admin from firebaseConfig.js
+const { admin } = require("./firebaseConfig");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
