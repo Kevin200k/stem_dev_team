@@ -15,7 +15,7 @@ const TitleBar = () => {
 
       {/* Logo/Name */}
       <div className='flex items-center ml-6'>
-        <img src={image2} alt="Logo" className='w-44' />
+        <img src={image2} alt="Logo" className='w-32' />
       </div>
 
       {/* Search Bar Section */}
