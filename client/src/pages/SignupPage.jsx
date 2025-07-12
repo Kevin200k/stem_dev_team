@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, User, Mail, Lock, Eye, EyeOff, Clock } from 'lucide-react';
+import {
+  ArrowLeft, User, Mail, Lock, Eye, EyeOff, Clock
+} from 'lucide-react';
 import { BsGoogle, BsFacebook } from 'react-icons/bs';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -30,7 +32,7 @@ const SignupPage = () => {
   useEffect(() => {
     let interval;
     if (sendingCode && timer > 0) {
-      interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
+      interval = setInterval(() => setTimer(prev => prev - 1), 1000);
     } else if (timer === 0) {
       setSendingCode(false);
       setTimer(60);
@@ -39,14 +41,13 @@ const SignupPage = () => {
   }, [sendingCode, timer]);
 
   const togglePasswordVisibility = () => {
-    setShowPassword((prev) => !prev);
+    setShowPassword(prev => !prev);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
-
     try {
       const result = await createUserWithEmailAndPassword(auth, email, password);
       const user = result.user;
@@ -83,7 +84,6 @@ const SignupPage = () => {
         provider: 'google',
       }, { merge: true });
 
-      alert('Google signup successful!');
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);
@@ -103,7 +103,6 @@ const SignupPage = () => {
         provider: 'facebook',
       }, { merge: true });
 
-      alert('Facebook signup successful!');
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);
@@ -111,22 +110,23 @@ const SignupPage = () => {
   };
 
   return (
-    <section className="h-screen grid grid-cols-2 relative">
-      {/* Left side */}
-      <div className={`flex-1 pt-10 pl-48 pr-48 transition-all duration-300 ${showVerificationModal ? 'blur-sm pointer-events-none' : ''}`}>
-        {/* Top row: Back button + Login redirect */}
-        <div className='flex justify-between p-2'>
-          <div className='bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100'>
+    <section className="h-screen grid grid-cols-1 md:grid-cols-2 relative">
+      {/* Left Side */}
+      <div className={`pt-10 px-6 md:px-16 lg:px-32 transition-all duration-300 ${showVerificationModal ? 'blur-sm pointer-events-none' : ''}`}>
+        {/* Top Row */}
+        <div className="flex justify-between p-2">
+          <div className="bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100">
             <Button />
           </div>
           <div>
-            Already a member? <span onClick={() => navigate('/login')} className='text-purple-600 cursor-pointer hover:underline'>Sign in</span>
+            Already a member?{' '}
+            <span onClick={() => navigate('/login')} className="text-purple-600 cursor-pointer hover:underline">Sign in</span>
           </div>
         </div>
 
         {/* Heading */}
-        <div className='mt-10'>
-          <h1 className='text-4xl font-bold'>Sign Up</h1>
+        <div className="mt-10">
+          <h1 className="text-4xl font-bold">Sign Up</h1>
           {sendingCode && (
             <div className="flex items-center gap-2 text-purple-700 font-medium mt-2">
               <Clock size={18} /> Sending verification... {timer}s
@@ -134,14 +134,14 @@ const SignupPage = () => {
           )}
         </div>
 
-        {/* Form */}
+        {/* Signup Form */}
         <form className="flex flex-col gap-4 mt-4" onSubmit={handleSubmit}>
           {/* Username */}
           <div className="relative">
             <User className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
-              type='text'
-              placeholder='Full Name'
+              type="text"
+              placeholder="Full Name"
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
               value={username}
               onChange={e => setUsername(e.target.value)}
@@ -153,8 +153,8 @@ const SignupPage = () => {
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
-              type='email'
-              placeholder='Email'
+              type="email"
+              placeholder="Email"
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
               value={email}
               onChange={e => setEmail(e.target.value)}
@@ -167,7 +167,7 @@ const SignupPage = () => {
             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
               type={showPassword ? 'text' : 'password'}
-              placeholder='Password'
+              placeholder="Password"
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
               value={password}
               onChange={e => setPassword(e.target.value)}
@@ -182,7 +182,7 @@ const SignupPage = () => {
 
           {/* Error Message */}
           {error && (
-            <div className='px-3 py-2 rounded-md bg-red-200'>
+            <div className="px-3 py-2 rounded-md bg-red-200">
               <p className="text-red-600 text-sm font-semibold">{error}</p>
             </div>
           )}
@@ -196,14 +196,14 @@ const SignupPage = () => {
             {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
 
-          {/* OR Separator */}
+          {/* Divider */}
           <div className="flex items-center my-6">
             <hr className="flex-grow border-gray-300" />
             <span className="mx-4 text-gray-500 font-medium">or</span>
             <hr className="flex-grow border-gray-300" />
           </div>
 
-          {/* Social Signup Buttons */}
+          {/* Social Signups */}
           <div className="flex flex-col gap-3">
             <button
               type="button"
@@ -225,13 +225,15 @@ const SignupPage = () => {
         </form>
       </div>
 
-      {/* Right half with image or promo */}
-      <SignupHalf />
+      {/* Right Side Image */}
+      <div className="hidden md:block">
+        <SignupHalf />
+      </div>
 
-      {/* Email Verification Modal */}
+      {/* Modal */}
       {showVerificationModal && (
-        <section className='fixed inset-0 bg-black/40 backdrop-blur-sm z-50'>
-          <div className='fixed inset-0 z-50 flex items-center justify-center'>
+        <section className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50">
+          <div className="fixed inset-0 z-50 flex items-center justify-center">
             <VerifyEmailModal onClose={() => setShowVerificationModal(false)} />
           </div>
         </section>
