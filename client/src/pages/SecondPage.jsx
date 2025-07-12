@@ -15,7 +15,7 @@ export default function SecondPage() {
           </svg>
         </div>
       </div>
-         <div className="transform -translate-x-1/2 translate-y-1/2 w-[90%] h-[400px] bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl z-10 flex items-center justify-center">
+         <div className="w-[90%] h-[400px] bg-white/10 backdrop-blur-md rounded-3xl shadow-2xl z-10 flex items-center justify-center">
             <img
             src={sample_video}
             alt="Sample Video"

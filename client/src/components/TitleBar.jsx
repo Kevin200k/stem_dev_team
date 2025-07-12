@@ -8,7 +8,7 @@ const TitleBar = () => {
 
       {/* Logo/Name */}
       <div className='flex items-center ml-6'>
-        <h1 className='text-3xl text-purple-800 font-extrabold'>LearnHub.AI</h1>
+        <h1 className='text-3xl text-purple-800 font-extrabold'><span className='text-gray-500'>Levelup</span>.ai</h1>
       </div>
 
       {/* Search Bar Section */}
