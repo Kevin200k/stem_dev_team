@@ -74,7 +74,7 @@ export default function Navbar() {
 
 
           {/* Sign Up Button */}
-       <button
+      <button
         className="px-5 py-1.5 text-[16px] text-white bg-gradient-to-tr from-[#9d5aff] to-[#d48cfa] rounded-3xl hover:scale-105 transition w-full h-full"
       >
         Sign Up
