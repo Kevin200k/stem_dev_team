@@ -16,7 +16,6 @@ const LoginPage = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-
   const navigate = useNavigate();
 
   const handleEmailLogin = async (e) => {
@@ -39,8 +38,7 @@ const LoginPage = () => {
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-      console.log('Google login success:', user);
+      console.log('Google login success:', result.user);
       navigate('/dashboard');
     } catch (err) {
       console.error('Google login error:', err);
@@ -53,38 +51,36 @@ const LoginPage = () => {
   };
 
   return (
-    <section className="h-screen grid grid-cols-2">
-      {/* Left Side */}
-      <div className="pt-10 pl-48 pr-48">
+    <section className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+      {/* Left Side - Form */}
+      <div className="flex flex-col justify-center px-6 sm:px-10 md:px-16 lg:px-24 xl:px-36 py-10">
         {/* Top Navigation */}
-        <div className='flex justify-between p-2'>
-          <div className='bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100'>
+        <div className="flex justify-between items-center mb-8">
+          <div className="bg-white rounded-full border-2 border-gray-300 w-10 h-10 flex items-center justify-center cursor-pointer hover:bg-gray-100">
             <Button />
           </div>
-          <div>
+          <div className="text-sm">
             Don&apos;t have an account?{' '}
-            <NavLink to='/signup'>
-              <span className='font-bold text-purple-600 cursor-pointer hover:underline'>Sign Up</span>
+            <NavLink to="/signup" className="font-bold text-purple-600 hover:underline">
+              Sign Up
             </NavLink>
           </div>
         </div>
 
-        {/* Page Heading */}
-        <div className='mt-20'>
-          <h1 className='text-4xl font-bold'>Log In</h1>
-        </div>
+        {/* Heading */}
+        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6">Log In</h1>
 
         {/* Login Form */}
-        <form className="flex flex-col gap-6 mt-8" onSubmit={handleEmailLogin}>
+        <form className="flex flex-col gap-6" onSubmit={handleEmailLogin}>
           {/* Email Input */}
           <div className="relative">
             <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
-              type='email'
-              placeholder='Email'
+              type="email"
+              placeholder="Email"
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -94,10 +90,10 @@ const LoginPage = () => {
             <Lock className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={20} />
             <input
               type={showPassword ? 'text' : 'password'}
-              placeholder='Password'
+              placeholder="Password"
               className="p-3 pl-10 w-full border-b border-gray-400 focus:outline-none focus:border-purple-500"
               value={password}
-              onChange={e => setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             {showPassword ? (
@@ -113,7 +109,6 @@ const LoginPage = () => {
                 onClick={togglePasswordVisibility}
               />
             )}
-            
           </div>
 
           {/* Error Message */}
@@ -136,10 +131,8 @@ const LoginPage = () => {
             )}
           </button>
 
-          <a
-            href="#"
-            className="text-sm text-purple-500 hover:underline"
-          >
+          {/* Forgot Password */}
+          <a href="#" className="text-sm text-purple-500 hover:underline">
             Forgot Password?
           </a>
 
@@ -151,7 +144,7 @@ const LoginPage = () => {
           </div>
 
           {/* Social Login Buttons */}
-          <div className="flex flex-col gap-3 w-full">
+          <div className="flex flex-col gap-3">
             <button
               type="button"
               onClick={handleGoogleLogin}
@@ -173,8 +166,10 @@ const LoginPage = () => {
         </form>
       </div>
 
-      {/* Right Side */}
-      <LoginHalf />
+      {/* Right Side - Design */}
+      <div className="hidden md:block">
+        <LoginHalf />
+      </div>
     </section>
   );
 };
