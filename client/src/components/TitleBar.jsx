@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mic, Bell, User, X } from 'lucide-react';
+import { Mic, Bell, User, X, Menu } from 'lucide-react';
 import image2 from '../assets/icon/image2.png';
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +9,7 @@ const TitleBar = () => {
 
   const handleSearchFocus = () => {
     if (window.innerWidth < 768) {
-      setIsMobileSearchOpen(true); 
+      setIsMobileSearchOpen(true);
     } else {
       navigate('/search');
     }
@@ -17,12 +17,19 @@ const TitleBar = () => {
 
   return (
     <>
-      <div className="h-20 grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_2fr_1fr] mx-4 shadow-md bg-white">
-        {/* Logo */}
-        <div className="flex items-center ml-6">
+      {/* Top Bar */}
+      <div className="h-20 grid grid-cols-[1fr_1fr] md:grid-cols-[1fr_2fr_1fr] mx-4 shadow-md bg-white items-center px-4 rounded-lg">
+
+        <div className="flex items-center gap-3">
+          <div className="block md:hidden cursor-pointer p-2 rounded-full hover:bg-gray-100">
+            <Menu size={24} />
+          </div>
+
+          {/* Logo */}
           <img src={image2} alt="Logo" className="w-32" />
         </div>
 
+        {/* Search bar (visible on md and above) */}
         <div className="hidden md:flex items-center p-2">
           <div className="flex-grow relative">
             <input
@@ -37,36 +44,43 @@ const TitleBar = () => {
           </div>
         </div>
 
-        
-
-        {/* Icons */}
-        <div className="flex items-center justify-end mr-6">
-          <div className="flex md:hidden items-center justify-center px-2">
+        {/* Right-side icons */}
+        <div className="flex items-center justify-end gap-3">
+          {/* Mobile search input placeholder (tappable to open modal) */}
+          <div className="block md:hidden">
             <div
               onClick={handleSearchFocus}
-              className="flex items-center w-full bg-purple-50 rounded-full px-4 py-3 text-gray-500 text-sm cursor-pointer border border-gray-300"
-            >Search...
+              className="flex items-center bg-purple-50 rounded-full px-4 py-2 text-gray-500 text-sm cursor-pointer border border-gray-300"
+            >
+              Search...
             </div>
           </div>
+
+          {/* Notification icon */}
           <div className="w-[48px] h-[48px] flex items-center justify-center rounded-full cursor-pointer bg-purple-100 hover:bg-purple-200 transition-colors duration-200">
             <Bell size={24} className="text-purple-700" />
           </div>
-          <div className="w-[48px] h-[48px] flex items-center justify-center rounded-full cursor-pointer ml-3 bg-purple-100 hover:bg-purple-200 transition-colors duration-200">
+
+          {/* Profile icon */}
+          <div className="w-[48px] h-[48px] flex items-center justify-center rounded-full cursor-pointer bg-purple-100 hover:bg-purple-200 transition-colors duration-200">
             <User size={24} className="text-purple-700" />
           </div>
         </div>
       </div>
 
-      {/* Modal Overlay */}
+      {/* Mobile Search Modal */}
       {isMobileSearchOpen && (
         <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center px-6">
           <div className="relative w-full max-w-md bg-white rounded-lg p-4 shadow-lg">
+            {/* Close button */}
             <button
               onClick={() => setIsMobileSearchOpen(false)}
-              className="absolute right-5 top-6 text-gray-500 hover:text-gray-700"
+              className="absolute right-5 top-5 text-gray-500 hover:text-gray-700"
             >
               <X size={24} />
             </button>
+
+            {/* Search input */}
             <input
               type="text"
               placeholder="Search Courses"
