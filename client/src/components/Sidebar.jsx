@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { LayoutDashboard, GraduationCap, BookOpenCheck, Play, Settings, LogOut } from 'lucide-react';
+import {
+  LayoutDashboard,
+  GraduationCap,
+  BookOpenCheck,
+  Play,
+  Settings,
+  LogOut
+} from 'lucide-react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
@@ -28,7 +35,7 @@ const Sidebar = () => {
     }
   };
 
-  // ✅ Close modal on outside click
+  // Close settings modal when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -51,7 +58,8 @@ const Sidebar = () => {
   }, [showSettings]);
 
   return (
-    <div className='relative bg-white ml-4 w-56 h-full p-4 flex flex-col shadow-lg'>
+    <div className='absolute md:relative bg-white w-96 md:w-56 ml-4 h-full p-4 flex flex-col shadow-lg z-50'>
+      {/* Nav Links */}
       <div className='flex flex-col gap-2'>
         <NavLink to='/dashboard' className={({ isActive }) => linkClass(isActive)}>
           <LayoutDashboard size={20} />
@@ -71,11 +79,12 @@ const Sidebar = () => {
         </NavLink>
       </div>
 
-
+      {/* Classmates */}
       <div className="flex-grow overflow-y-auto my-4">
         <ClassMates />
       </div>
 
+      {/* Settings & Logout */}
       <div className='flex flex-col gap-2 mt-auto'>
         <div
           ref={settingsBtnRef}
@@ -95,6 +104,7 @@ const Sidebar = () => {
         </div>
       </div>
 
+      {/* Settings Modal */}
       {showSettings && (
         <div ref={modalRef}>
           <SettingsModal onClose={() => setShowSettings(false)} />
