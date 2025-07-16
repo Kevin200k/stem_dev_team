@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import ProtectedRoutes from './utils/ProtectedRoutes'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
@@ -17,6 +18,8 @@ import History from './pages/History'
 import TestMe from './pages/TestMe'
 import Videos from './pages/Videos'
 import Addfile from './pages/Addfile'
+import Search from './pages/Search'
+import Settings from './pages/Settings'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +27,7 @@ const router = createBrowserRouter(
       <Route path='/login' element = { <LoginPage /> } />
       <Route path='/signup' element = { <SignupPage /> } />
       <Route index element = { <HomePage /> } />
+
       <Route path='/' element={ <MainLayout /> }>
         <Route path='/dashboard' element = { <Dashboard /> } />
         <Route path='/courses' element = { <Courses /> } />
@@ -35,10 +39,12 @@ const router = createBrowserRouter(
         <Route path='/courses/bio-001' element={ <BiologyCourse /> } />
         <Route path='/courses/sci-003' element={ <PhysicsCourse /> } />
         <Route path='/courses/hist-004' element={ <History /> } />
-        <Route path='/testme' element={ <TestMe /> } />
+        <Route path='/test-me' element={ <TestMe /> } />
         <Route path='/videos' element={ <Videos /> } />
-        <Route path='/file-upload' element={ <Addfile /> } />
+        <Route path='/courses/file-upload' element={ <Addfile /> } />
+        <Route path='/search' element={ <Search /> } />
       </Route>
+      <Route path='/settings' element={<Settings />} />
       <Route path='*' element={<NotFoundPage />} />
     </React.Fragment>
   )
