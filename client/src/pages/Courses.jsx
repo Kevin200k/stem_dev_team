@@ -1,5 +1,5 @@
 // Refined Courses Page Component
-import React, { useState } from 'react'; // Import useState
+import React, { useState, useEffect } from 'react'; // Import useState
 import {
   BookOpen,
   FlaskConical,
@@ -17,6 +17,8 @@ import English2 from '../assets/courses-icon/English2.jpeg'
 import Biology from '../assets/courses-icon/Biology.jpeg'
 import Physics from '../assets/courses-icon/Physics.jpeg'
 import History from '../assets/courses-icon/History.jpeg'
+import { useSearch } from '../context/SearchContext';
+
 
 export const allCourses = [
   {
@@ -217,7 +219,19 @@ const CourseCard = ({ course, onCourseClick }) => {
   );
 };
 
-const Courses = () => {
+const Courses = (searchCourses) => {
+
+  const { query } = useSearch()
+
+  useEffect(() => {
+    console.log('Query:', query)
+  }, [])
+
+  const searchQuery = allCourses.filter((course) => {
+    return course.title.toLowerCase().includes(query.toLowerCase())
+  })
+
+
   const [selectedCourse, setSelectedCourse] = useState(null);
   // State to manage the visibility of the "Upload File" tooltip
   const [showUploadTooltip, setShowUploadTooltip] = useState(false);
