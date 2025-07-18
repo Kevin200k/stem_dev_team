@@ -1,5 +1,6 @@
 import React from 'react'
-import { Route, Routes, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
+import ProtectedRoutes from './utils/ProtectedRoutes'
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
@@ -17,35 +18,45 @@ import History from './pages/History'
 import TestMe from './pages/TestMe'
 import Videos from './pages/Videos'
 import Addfile from './pages/Addfile'
+import Search from './pages/Search'
+import Settings from './pages/Settings'
+import { SearchProvider } from './context/SearchContext'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <React.Fragment>
-      <Route path='/login' element = { <LoginPage /> } />
-      <Route path='/signup' element = { <SignupPage /> } />
-      <Route index element = { <HomePage /> } />
-      <Route path='/' element={ <MainLayout /> }>
-        <Route path='/dashboard' element = { <Dashboard /> } />
-        <Route path='/courses' element = { <Courses /> } />
-        <Route path='/courses/math-001' element={ <MathematicsCourse /> } />
-        <Route path='/courses/math-001' element={ <MathematicsCourse /> } />
-        <Route path='/courses/math-002' element={ <SecondMathematicsCourses /> } />
-        <Route path='/courses/eng-003' element={ <SecondEnglishCourse /> } />
-        <Route path='/courses/eng-002' element={ <EnglishCourse /> } />
-        <Route path='/courses/bio-001' element={ <BiologyCourse /> } />
-        <Route path='/courses/sci-003' element={ <PhysicsCourse /> } />
-        <Route path='/courses/hist-004' element={ <History /> } />
-        <Route path='/testme' element={ <TestMe /> } />
-        <Route path='/videos' element={ <Videos /> } />
-        <Route path='/file-upload' element={ <Addfile /> } />
+    <>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage />} />
+      <Route index element={<HomePage />} />
+
+      <Route path="/" element={<MainLayout />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/math-001" element={<MathematicsCourse />} />
+        <Route path="/courses/math-002" element={<SecondMathematicsCourses />} />
+        <Route path="/courses/eng-003" element={<SecondEnglishCourse />} />
+        <Route path="/courses/eng-002" element={<EnglishCourse />} />
+        <Route path="/courses/bio-001" element={<BiologyCourse />} />
+        <Route path="/courses/sci-003" element={<PhysicsCourse />} />
+        <Route path="/courses/hist-004" element={<History />} />
+        <Route path="/test-me" element={<TestMe />} />
+        <Route path="/videos" element={<Videos />} />
+        <Route path="/courses/file-upload" element={<Addfile />} />
+        <Route path="/search" element={<Search />} />
       </Route>
-      <Route path='*' element={<NotFoundPage />} />
-    </React.Fragment>
+
+      <Route path="/settings" element={<Settings />} />
+      <Route path="*" element={<NotFoundPage />} />
+    </>
   )
 )
 
 const App = () => {
-  return <RouterProvider router={router} />
+  return (
+    <SearchProvider>
+      <RouterProvider router={router} />
+    </SearchProvider>
+  )
 }
 
 export default App

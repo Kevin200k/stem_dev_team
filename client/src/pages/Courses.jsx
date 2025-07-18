@@ -1,5 +1,5 @@
 // Refined Courses Page Component
-import React, { useState } from 'react'; // Import useState
+import React, { useState, useEffect } from 'react'; // Import useState
 import {
   BookOpen,
   FlaskConical,
@@ -10,6 +10,15 @@ import {
   Plus
 } from 'lucide-react';
 import { NavLink, Link } from 'react-router-dom';
+import Math from '../assets/courses-icon/Math.jpeg'
+import Math1 from '../assets/courses-icon/Math1.png'
+import English from '../assets/courses-icon/English.jpeg'
+import English2 from '../assets/courses-icon/English2.jpeg'
+import Biology from '../assets/courses-icon/Biology.jpeg'
+import Physics from '../assets/courses-icon/Physics.jpeg'
+import History from '../assets/courses-icon/History.jpeg'
+import { useSearch } from '../context/SearchContext';
+
 
 export const allCourses = [
   {
@@ -22,7 +31,7 @@ export const allCourses = [
     level: 'Beginner',
     modules: 12,
     rating: 4.8,
-    imageUrl: 'https://via.placeholder.com/200x120/8a2be2/FFFFFF?text=Algebra',
+    imageUrl: Math,
     topics: [
       { id: 'm001t01', title: 'Introduction to Variables', status: 'completed' },
       { id: 'm001t02', title: 'Linear Equations in One Variable', status: 'in-progress' },
@@ -40,7 +49,7 @@ export const allCourses = [
     level: 'Intermediate',
     modules: 10,
     rating: 4.5,
-    imageUrl: 'https://via.placeholder.com/200x120/d70081/FFFFFF?text=Writing',
+    imageUrl: English,
     topics: [
       { id: 'e002t01', title: 'The Elements of Story', status: 'not-started' },
       { id: 'e002t02', title: 'Developing Characters', status: 'not-started' },
@@ -57,7 +66,7 @@ export const allCourses = [
     level: 'Beginner',
     modules: 15,
     rating: 4.7,
-    imageUrl: 'https://via.placeholder.com/200x120/3cb371/FFFFFF?text=Physics',
+    imageUrl: Physics,
     topics: [
       { id: 's003t01', title: 'Kinematics: Describing Motion', status: 'completed' },
       { id: 's003t02', title: 'Newton\'s Laws of Motion', status: 'in-progress' },
@@ -74,7 +83,7 @@ export const allCourses = [
     level: 'Advanced',
     modules: 8,
     rating: 4.9,
-    imageUrl: 'https://via.placeholder.com/200x120/1e90ff/FFFFFF?text=WWII',
+    imageUrl: History,
     topics: [
       { id: 'h004t01', title: 'Causes of the War', status: 'completed' },
       { id: 'h004t02', title: 'Major Campaigns (European Theater)', status: 'completed' },
@@ -92,7 +101,7 @@ export const allCourses = [
     level: 'Advanced',
     modules: 18,
     rating: 4.6,
-    imageUrl: 'https://via.placeholder.com/200x120/8a2be2/FFFFFF?text=Calculus+I',
+    imageUrl: Math1,
     topics: [
       { id: 'm002t01', title: 'Understanding Limits', status: 'not-started' },
       { id: 'm002t02', title: 'Introduction to Derivatives', status: 'not-started' },
@@ -108,7 +117,7 @@ export const allCourses = [
     level: 'Intermediate',
     modules: 10,
     rating: 4.7,
-    imageUrl: 'https://via.placeholder.com/200x120/d70081/FFFFFF?text=Literary+Analysis',
+    imageUrl: English2,
     topics: [
       { id: 'e003t01', title: 'Analyzing Themes', status: 'not-started' },
       { id: 'e003t02', title: 'Character Deconstruction', status: 'not-started' },
@@ -124,7 +133,7 @@ export const allCourses = [
     level: 'Beginner',
     modules: 10,
     rating: 4.6,
-    imageUrl: 'https://via.placeholder.com/200x120/FFA500/FFFFFF?text=Biology',
+    imageUrl: Biology,
     topics: [
       { id: 'b001t01', title: 'The Scientific Method', status: 'not-started' },
       { id: 'b001t02', title: 'Cells: The Basic Unit of Life', status: 'not-started' },
@@ -210,7 +219,19 @@ const CourseCard = ({ course, onCourseClick }) => {
   );
 };
 
-const Courses = () => {
+const Courses = (searchCourses) => {
+
+  const { query } = useSearch()
+
+  useEffect(() => {
+    console.log('Query:', query)
+  }, [])
+
+  const searchQuery = allCourses.filter((course) => {
+    return course.title.toLowerCase().includes(query.toLowerCase())
+  })
+
+
   const [selectedCourse, setSelectedCourse] = useState(null);
   // State to manage the visibility of the "Upload File" tooltip
   const [showUploadTooltip, setShowUploadTooltip] = useState(false);
@@ -270,18 +291,16 @@ const Courses = () => {
         </div>
       </div>
 
-      <NavLink to='/courses/upload-file'>
+      <Link to='/courses/file-upload'>
         {/* Add event handlers to the FAB container */}
         <div
           className='h-14 w-14 rounded-full bg-purple-400 absolute right-20 bottom-20 flex justify-center items-center cursor-pointer group'
           onMouseEnter={() => setShowUploadTooltip(true)}
           onMouseLeave={() => setShowUploadTooltip(false)}
         >
-          <Link to='/file-upload'>
-            <div>
-              <Plus color='white' strokeWidth={2} size={30} />
-            </div>
-          </Link>
+          <div>
+            <Plus color='white' strokeWidth={2} size={30} />
+          </div>
 
           {/* Conditionally render the tooltip based on showUploadTooltip state */}
           {showUploadTooltip && (
@@ -290,7 +309,7 @@ const Courses = () => {
             </div>
           )}
         </div>
-      </NavLink>
+      </Link>
 
     </section>
   );
