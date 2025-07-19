@@ -60,7 +60,7 @@ const MainBody = () => {
   ];
 
   return (
-    <section className="h-full flex flex-col px-4 sm:px-6 md:px-8 lg:px-10 py-6">
+    <section className=" h-full flex flex-col px-4 sm:px-6 md:px-8 lg:px-10 py-6">
 
       {/* Mobile View Greeting */}
       <div className="md:hidden flex flex-col items-center mb-8 bg-gradient-to-r from-purple-700 to-indigo-900 text-white p-6 rounded-lg shadow-xl">
@@ -72,14 +72,17 @@ const MainBody = () => {
         </span>
         <p className="text-md text-purple-100">It's a great day to learn.</p>
       </div>
-
+      <div className = "w-full h-[200px] bg-amber-800">
+        <h1>Welcome, Michael Amos</h1>
+        
+      </div>
       {/* Main Grid: Courses + Stats */}
       <div className="grid gap-6 md:grid-cols-[2fr_1fr]">
 
         {/* Courses Section */}
         <div className="bg-white p-6 rounded-lg shadow-md flex flex-col">
           {/* Courses section */}
-          <h1 className="text-3xl font-extrabold text-purple-800 mb-6">My Courses</h1>
+          <h1 className="text-2xl font-normal text-purple-500 mb-6">Continue Quests</h1>
 
           <div className="grid sm:grid-cols-2 gap-4 overflow-y-auto pr-1">
             {courses.map(course => (

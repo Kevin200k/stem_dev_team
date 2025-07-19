@@ -12,18 +12,18 @@ import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import ClassMates from './ClassMates';
 import SettingsModal from './SettingsModal';
+import image2 from '../assets/icon/image2.png';
 
 const Sidebar = () => {
   const [showSettings, setShowSettings] = useState(false);
   const modalRef = useRef(null);
   const settingsBtnRef = useRef(null);
-
   const navigate = useNavigate();
 
   const linkClass = (isActive) => {
-    const baseStyles = 'h-12 flex items-center p-4 rounded-md cursor-pointer text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200';
-    const activeStyles = 'text-purple-700 font-semibold bg-purple-100 shadow-sm';
-    return isActive ? `${baseStyles} ${activeStyles}` : baseStyles;
+    const base = 'h-12 flex items-center px-4 rounded-md cursor-pointer text-gray-700 hover:bg-purple-50 hover:text-purple-700 transition-colors duration-200';
+    const active = 'text-purple-700 font-semibold bg-purple-100 shadow';
+    return isActive ? `${base} ${active}` : base;
   };
 
   const handleSignout = async () => {
@@ -35,7 +35,6 @@ const Sidebar = () => {
     }
   };
 
-  // Close settings modal when clicking outside
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (
@@ -58,9 +57,15 @@ const Sidebar = () => {
   }, [showSettings]);
 
   return (
-    <div className='absolute md:relative bg-white w-96 md:w-56 ml-4 h-full p-4 flex flex-col shadow-lg z-50'>
-      {/* Nav Links */}
-      <div className='flex flex-col gap-2'>
+    <aside className='absolute md:relative  bg-white w-96 md:w-56 h-full p-4 flex flex-col shadow-lg z-50'>
+
+      {/* Logo */}
+      <div className="flex items-center justify-start mb-6 pl-2">
+        <img src={image2} alt="Logo" className="h-5.5 mt-2.5 mb-1" />
+      </div>
+
+      {/* Navigation Links */}
+      <section className='text-[14.5px] flex flex-col gap-2 mb-4'>
         <NavLink to='/dashboard' className={({ isActive }) => linkClass(isActive)}>
           <LayoutDashboard size={20} />
           <span className='ml-3'>Dashboard</span>
@@ -77,15 +82,15 @@ const Sidebar = () => {
           <Play size={20} />
           <span className='ml-3'>Videos</span>
         </NavLink>
-      </div>
+      </section>
 
       {/* Classmates */}
-      <div className="flex-grow overflow-y-auto my-4">
+      <section className="flex-grow overflow-y-auto pt-2 mb-4">
         <ClassMates />
-      </div>
+      </section>
 
       {/* Settings & Logout */}
-      <div className='flex flex-col gap-2 mt-auto'>
+      <section className='flex flex-col gap-2 mt-auto'>
         <div
           ref={settingsBtnRef}
           className={linkClass(showSettings)}
@@ -96,13 +101,13 @@ const Sidebar = () => {
         </div>
 
         <div
-          className='h-12 flex items-center p-4 rounded-md cursor-pointer text-red-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200'
+          className='h-12 flex items-center px-4 rounded-md cursor-pointer text-red-500 hover:bg-red-50 hover:text-red-700 transition-colors duration-200'
           onClick={handleSignout}
         >
           <LogOut size={20} />
           <span className='ml-3'>Logout</span>
         </div>
-      </div>
+      </section>
 
       {/* Settings Modal */}
       {showSettings && (
@@ -110,7 +115,7 @@ const Sidebar = () => {
           <SettingsModal onClose={() => setShowSettings(false)} />
         </div>
       )}
-    </div>
+    </aside>
   );
 };
 

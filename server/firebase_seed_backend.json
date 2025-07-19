@@ -1,0 +1,724 @@
+{
+  "categories": [
+    {
+      "id": "b87f8014-c110-4a47-8f30-66a974d63a19",
+      "name": "Mathematics"
+    },
+    {
+      "id": "cf6aa81e-97d8-4bc2-b93d-6bae05889a29",
+      "name": "English"
+    },
+    {
+      "id": "f0db6dd2-29f4-4f70-9bc9-48e27dc791f4",
+      "name": "Science"
+    },
+    {
+      "id": "0707708e-a913-4555-acab-a7a67af7c9bc",
+      "name": "History"
+    },
+    {
+      "id": "6fa875a9-9e70-4581-802e-14c085be7800",
+      "name": "SAT Math"
+    },
+    {
+      "id": "77eb0d52-7de3-4d15-86ff-4670fc93fe10",
+      "name": "SAT English"
+    }
+  ],
+  "objectives": [
+    {
+      "id": "1d046463-e25f-4693-9a85-656a47bde862",
+      "title": "Algebra",
+      "description": "Master the basics of Algebra with examples and practice."
+    },
+    {
+      "id": "d84a46b1-c79e-4bca-9882-541b4b0c6d84",
+      "title": "Calculus",
+      "description": "Master the basics of Calculus with examples and practice."
+    },
+    {
+      "id": "32347e74-eaf2-448e-a078-b087dcf7c45b",
+      "title": "Grammar",
+      "description": "Master the basics of Grammar with examples and practice."
+    },
+    {
+      "id": "c0823ec1-866b-41c0-a4e1-17675ec844fd",
+      "title": "Essay Writing",
+      "description": "Master the basics of Essay Writing with examples and practice."
+    },
+    {
+      "id": "7a2c5976-6452-43af-82ac-22b3a189e2e4",
+      "title": "Newton's Laws",
+      "description": "Master the basics of Newton's Laws with examples and practice."
+    },
+    {
+      "id": "4edb79d8-72ff-4a53-a869-e927319818bd",
+      "title": "Photosynthesis",
+      "description": "Master the basics of Photosynthesis with examples and practice."
+    },
+    {
+      "id": "68fe4218-53d3-4f4c-ad2f-e50cb6326245",
+      "title": "World War II",
+      "description": "Master the basics of World War II with examples and practice."
+    },
+    {
+      "id": "268b011c-ac2d-4a6c-bbb3-c9358cf2f864",
+      "title": "Colonial History",
+      "description": "Master the basics of Colonial History with examples and practice."
+    },
+    {
+      "id": "31ca0e25-1b65-4c58-ab3f-f53fe4201de0",
+      "title": "Trigonometry",
+      "description": "Master the basics of Trigonometry with examples and practice."
+    },
+    {
+      "id": "ad828b55-2c50-4b59-8450-2baba59d4be0",
+      "title": "Comprehension",
+      "description": "Master the basics of Comprehension with examples and practice."
+    },
+    {
+      "id": "f7539a3a-ef9a-4c8b-80c4-c649309bef5e",
+      "title": "Probability",
+      "description": "Master the basics of Probability with examples and practice."
+    },
+    {
+      "id": "9115c146-52c6-4a6a-87e7-594a7f6f5940",
+      "title": "Data Analysis",
+      "description": "Master the basics of Data Analysis with examples and practice."
+    },
+    {
+      "id": "bc2787b3-d7e9-453f-9086-510f5ef00c74",
+      "title": "Scientific Method",
+      "description": "Master the basics of Scientific Method with examples and practice."
+    },
+    {
+      "id": "e3eb1bf2-eaa2-49ac-b746-57d7d5be8f6e",
+      "title": "Narrative Writing",
+      "description": "Master the basics of Narrative Writing with examples and practice."
+    },
+    {
+      "id": "a7d63193-f929-482c-af21-f18aab7c64bc",
+      "title": "SAT Practice",
+      "description": "Master the basics of SAT Practice with examples and practice."
+    }
+  ],
+  "schemesOfWork": [
+    {
+      "id": "21327383-07e0-4f88-a60d-cd2cae29ef10",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "b88da039-1f6a-4eca-adac-d098b8c6f162",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "dbe9d4c9-0d43-4b61-9941-7c1975e731ed",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "16d3d065-3429-4f77-bf6d-7454136a4d24",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "947b56c1-0f70-4889-afd6-37df76846bd3",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "0a898317-9794-4046-b7f2-5141069146e9",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "8a22ad2f-1c0f-4c32-868a-041ced3507cb",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "b9e90090-05ec-4740-9630-839d491b1042",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "54862f2d-6a37-4cc8-8cc2-b67fa98ed7db",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "3d37cc3c-1b63-418e-84f2-7694ae478aa2",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "86977e39-efa4-4026-bb1b-8352e404d6bc",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "70436b6a-c5a6-4296-9c32-adb3787337aa",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "d8ecb314-04af-4185-9b5a-ff27ed593379",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "fc59e55f-987e-4270-9a66-6322e008289b",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    },
+    {
+      "id": "91d02a82-0346-449c-ba8a-6bd881d616af",
+      "weeks": [
+        {
+          "week": 1,
+          "topic": "Week 1 Topic",
+          "objective": "Learn topic 1"
+        },
+        {
+          "week": 2,
+          "topic": "Week 2 Topic",
+          "objective": "Learn topic 2"
+        },
+        {
+          "week": 3,
+          "topic": "Week 3 Topic",
+          "objective": "Learn topic 3"
+        },
+        {
+          "week": 4,
+          "topic": "Week 4 Topic",
+          "objective": "Learn topic 4"
+        },
+        {
+          "week": 5,
+          "topic": "Week 5 Topic",
+          "objective": "Learn topic 5"
+        }
+      ]
+    }
+  ],
+  "courses": [
+    {
+      "id": "e742e712-bb37-4665-802e-33f87c5852db",
+      "title": "Fundamentals of Algebra",
+      "description": "Course on Fundamentals of Algebra covering essential concepts.",
+      "categoryId": "f0db6dd2-29f4-4f70-9bc9-48e27dc791f4",
+      "objectiveIds": [
+        "1d046463-e25f-4693-9a85-656a47bde862"
+      ],
+      "schemeOfWorkId": "21327383-07e0-4f88-a60d-cd2cae29ef10",
+      "createdAt": "2025-07-19T06:33:41.048107"
+    },
+    {
+      "id": "2cc89715-80a1-4f11-b96f-a7dc71662914",
+      "title": "Calculus I: Limits & Derivatives",
+      "description": "Course on Calculus I: Limits & Derivatives covering essential concepts.",
+      "categoryId": "0707708e-a913-4555-acab-a7a67af7c9bc",
+      "objectiveIds": [
+        "d84a46b1-c79e-4bca-9882-541b4b0c6d84"
+      ],
+      "schemeOfWorkId": "b88da039-1f6a-4eca-adac-d098b8c6f162",
+      "createdAt": "2025-07-19T06:33:41.048148"
+    },
+    {
+      "id": "3671528a-0937-4016-86d7-3449a98d3f18",
+      "title": "Creative Writing Workshop",
+      "description": "Course on Creative Writing Workshop covering essential concepts.",
+      "categoryId": "0707708e-a913-4555-acab-a7a67af7c9bc",
+      "objectiveIds": [
+        "32347e74-eaf2-448e-a078-b087dcf7c45b"
+      ],
+      "schemeOfWorkId": "dbe9d4c9-0d43-4b61-9941-7c1975e731ed",
+      "createdAt": "2025-07-19T06:33:41.048172"
+    },
+    {
+      "id": "660417b5-0cc5-458f-b2dd-e694d2efbab7",
+      "title": "Newtonian Mechanics",
+      "description": "Course on Newtonian Mechanics covering essential concepts.",
+      "categoryId": "f0db6dd2-29f4-4f70-9bc9-48e27dc791f4",
+      "objectiveIds": [
+        "c0823ec1-866b-41c0-a4e1-17675ec844fd"
+      ],
+      "schemeOfWorkId": "16d3d065-3429-4f77-bf6d-7454136a4d24",
+      "createdAt": "2025-07-19T06:33:41.048188"
+    },
+    {
+      "id": "b64c1b78-80f8-4f60-ac68-a48a415cd8e9",
+      "title": "World History 101",
+      "description": "Course on World History 101 covering essential concepts.",
+      "categoryId": "f0db6dd2-29f4-4f70-9bc9-48e27dc791f4",
+      "objectiveIds": [
+        "7a2c5976-6452-43af-82ac-22b3a189e2e4"
+      ],
+      "schemeOfWorkId": "947b56c1-0f70-4889-afd6-37df76846bd3",
+      "createdAt": "2025-07-19T06:33:41.048203"
+    },
+    {
+      "id": "d8a399ac-e957-4980-84db-fe08e804ef24",
+      "title": "SAT Math Foundations",
+      "description": "Course on SAT Math Foundations covering essential concepts.",
+      "categoryId": "0707708e-a913-4555-acab-a7a67af7c9bc",
+      "objectiveIds": [
+        "4edb79d8-72ff-4a53-a869-e927319818bd"
+      ],
+      "schemeOfWorkId": "0a898317-9794-4046-b7f2-5141069146e9",
+      "createdAt": "2025-07-19T06:33:41.048218"
+    },
+    {
+      "id": "b638bb7f-1086-458c-bcec-b5e9fb6e63bf",
+      "title": "SAT English Essentials",
+      "description": "Course on SAT English Essentials covering essential concepts.",
+      "categoryId": "f0db6dd2-29f4-4f70-9bc9-48e27dc791f4",
+      "objectiveIds": [
+        "68fe4218-53d3-4f4c-ad2f-e50cb6326245"
+      ],
+      "schemeOfWorkId": "8a22ad2f-1c0f-4c32-868a-041ced3507cb",
+      "createdAt": "2025-07-19T06:33:41.048232"
+    },
+    {
+      "id": "3e2f6e4d-d66f-4246-b0a4-e896029016f6",
+      "title": "Intro to Trigonometry",
+      "description": "Course on Intro to Trigonometry covering essential concepts.",
+      "categoryId": "f0db6dd2-29f4-4f70-9bc9-48e27dc791f4",
+      "objectiveIds": [
+        "268b011c-ac2d-4a6c-bbb3-c9358cf2f864"
+      ],
+      "schemeOfWorkId": "b9e90090-05ec-4740-9630-839d491b1042",
+      "createdAt": "2025-07-19T06:33:41.048258"
+    },
+    {
+      "id": "4cb8a55e-f73d-4f1c-809d-137409856db2",
+      "title": "Photosynthesis & Cell Functions",
+      "description": "Course on Photosynthesis & Cell Functions covering essential concepts.",
+      "categoryId": "0707708e-a913-4555-acab-a7a67af7c9bc",
+      "objectiveIds": [
+        "31ca0e25-1b65-4c58-ab3f-f53fe4201de0"
+      ],
+      "schemeOfWorkId": "54862f2d-6a37-4cc8-8cc2-b67fa98ed7db",
+      "createdAt": "2025-07-19T06:33:41.048274"
+    },
+    {
+      "id": "48dd2637-a367-4057-b03b-d81376278b24",
+      "title": "English Literature: Shakespeare",
+      "description": "Course on English Literature: Shakespeare covering essential concepts.",
+      "categoryId": "6fa875a9-9e70-4581-802e-14c085be7800",
+      "objectiveIds": [
+        "ad828b55-2c50-4b59-8450-2baba59d4be0"
+      ],
+      "schemeOfWorkId": "3d37cc3c-1b63-418e-84f2-7694ae478aa2",
+      "createdAt": "2025-07-19T06:33:41.048288"
+    },
+    {
+      "id": "2e10338d-2cef-4ec7-8fcb-2499c8ad53d7",
+      "title": "Geometry Mastery",
+      "description": "Course on Geometry Mastery covering essential concepts.",
+      "categoryId": "6fa875a9-9e70-4581-802e-14c085be7800",
+      "objectiveIds": [
+        "f7539a3a-ef9a-4c8b-80c4-c649309bef5e"
+      ],
+      "schemeOfWorkId": "86977e39-efa4-4026-bb1b-8352e404d6bc",
+      "createdAt": "2025-07-19T06:33:41.048302"
+    },
+    {
+      "id": "f2ce3cdb-47dd-4181-be72-67b859c3c94c",
+      "title": "Scientific Experiments",
+      "description": "Course on Scientific Experiments covering essential concepts.",
+      "categoryId": "77eb0d52-7de3-4d15-86ff-4670fc93fe10",
+      "objectiveIds": [
+        "9115c146-52c6-4a6a-87e7-594a7f6f5940"
+      ],
+      "schemeOfWorkId": "70436b6a-c5a6-4296-9c32-adb3787337aa",
+      "createdAt": "2025-07-19T06:33:41.048316"
+    },
+    {
+      "id": "26220c4b-60db-4846-bb09-32cbbe6bdd6b",
+      "title": "Advanced Grammar Skills",
+      "description": "Course on Advanced Grammar Skills covering essential concepts.",
+      "categoryId": "77eb0d52-7de3-4d15-86ff-4670fc93fe10",
+      "objectiveIds": [
+        "bc2787b3-d7e9-453f-9086-510f5ef00c74"
+      ],
+      "schemeOfWorkId": "d8ecb314-04af-4185-9b5a-ff27ed593379",
+      "createdAt": "2025-07-19T06:33:41.048330"
+    },
+    {
+      "id": "16ceaff7-9bb7-4d17-85ab-b8ad1d7189c1",
+      "title": "Essay Writing Techniques",
+      "description": "Course on Essay Writing Techniques covering essential concepts.",
+      "categoryId": "0707708e-a913-4555-acab-a7a67af7c9bc",
+      "objectiveIds": [
+        "e3eb1bf2-eaa2-49ac-b746-57d7d5be8f6e"
+      ],
+      "schemeOfWorkId": "fc59e55f-987e-4270-9a66-6322e008289b",
+      "createdAt": "2025-07-19T06:33:41.048343"
+    },
+    {
+      "id": "88dd4ee1-b5a1-49e8-b877-c224510ef6cf",
+      "title": "Probability in Real Life",
+      "description": "Course on Probability in Real Life covering essential concepts.",
+      "categoryId": "cf6aa81e-97d8-4bc2-b93d-6bae05889a29",
+      "objectiveIds": [
+        "a7d63193-f929-482c-af21-f18aab7c64bc"
+      ],
+      "schemeOfWorkId": "91d02a82-0346-449c-ba8a-6bd881d616af",
+      "createdAt": "2025-07-19T06:33:41.048356"
+    }
+  ]
+}
