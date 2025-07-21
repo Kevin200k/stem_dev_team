@@ -130,3 +130,44 @@ Return the final output as a **JSON array of 10 objects**, like this:
     ]
   }
 ]
+
+✅ FORMAT PER TYPE:
+
+**"video"**:
+- `"scene_description"`: What we see on screen
+- `"script"`: At least 100 words. Fun, clear, and **explains the concept** (not just jokes or intros)
+
+**"text"**:
+- `"content"`: Explain in simple language. Use **bold** words and emojis where helpful.
+
+**"interaction"**:
+- `"title"` and `"description"`
+- `"working_code"`: Valid HTML + JavaScript
+- `"explain"`: What the activity shows/teaches
+
+**"quiz"**:
+- `"questions"`: Array of 2+ questions, each with:
+  - `"question"`
+  - `"options"` (3–4)
+  - `"correct_answer"` (index)
+  - `"explanation"`
+
+---
+
+🚫 DO NOT:
+- Wrap in backticks (```)
+- Say “Here is your lesson”
+- Use audio types (combine with "video" if needed)
+
+---
+
+✅ EXTRA NOTES:
+
+- Keep language fun and friendly for kids (ages 5–12)
+- Use emojis where appropriate 😊
+- Every step must be genuinely useful for **learning**, not just filler
+- Ensure video scripts are **long enough** to actually explain the concept (at least 100 words)
+
+---
+
+Return ONLY the pure JSON array of steps.
