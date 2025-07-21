@@ -1,22 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Search as SearchIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSearch } from '../context/SearchContext';
-import { allCourses } from './Courses';
 
 const SearchPage = () => {
   const { query } = useSearch();
   const navigate = useNavigate();
-
-  const filteredCourses = allCourses.filter(course =>
-    course.title.toLowerCase().includes(query.toLowerCase()) || course.category.toLowerCase().includes(query.toLowerCase())
-  );
+  const [results, setResults] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleBack = () => navigate(-1);
 
+  useEffect(() => {
+    const fetchResults = async () => {
+      if (!query) return;
+      setLoading(true);
+
+      try {
+        const response = await fetch(`http://localhost:5000/api/search?query=${query}`);
+        const data = await response.json();
+        setResults(data || []);
+      } catch (err) {
+        console.error("Search failed:", err);
+        setResults([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchResults();
+  }, [query]);
+
   return (
     <div className="min-h-screen bg-gray-50 px-6 py-6">
-      {/* Back Button */}
       {query && (
         <div className="flex items-center mb-6">
           <button
@@ -28,34 +44,35 @@ const SearchPage = () => {
         </div>
       )}
 
-      {/* Search Results */}
       {query ? (
         <div>
           <h2 className="text-2xl font-bold text-gray-800 mb-4">
             Results for: <span className="text-purple-600">{query}</span>
           </h2>
 
-          {filteredCourses.length > 0 ? (
+          {loading ? (
+            <p className="text-gray-500 mt-4">Searching...</p>
+          ) : results.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredCourses.map(course => (
+              {results.map(course => (
                 <div
                   key={course.id}
                   onClick={() => navigate(`/courses/${course.id}`)}
                   className="bg-white rounded-xl shadow hover:shadow-lg p-5 cursor-pointer transition hover:scale-[1.02]"
                 >
-                  {/* Category */}
+                  {/* Category Name */}
                   <span className="inline-block bg-purple-100 text-purple-700 text-xs font-medium px-3 py-1 rounded-full mb-2">
-                    {course.category}
+                    {course.categoryName || 'Course'}
                   </span>
 
                   {/* Course Title */}
                   <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                    {course.title}
+                    {course.title || 'Untitled'}
                   </h3>
 
                   {/* Description */}
                   <p className="text-sm text-gray-600 line-clamp-2">
-                    {course.description}
+                    {course.description || 'No description available'}
                   </p>
                 </div>
               ))}
@@ -65,7 +82,6 @@ const SearchPage = () => {
           )}
         </div>
       ) : (
-        // Empty State
         <div className="flex flex-col items-center justify-center h-[70vh] text-center">
           <SearchIcon size={120} strokeWidth={1.5} className="text-purple-300 opacity-25 mb-6" />
           <h1 className="text-3xl font-bold text-gray-800">Start Typing to Search</h1>

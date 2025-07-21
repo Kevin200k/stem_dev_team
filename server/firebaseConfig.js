@@ -1,16 +1,28 @@
 const admin = require("firebase-admin");
 
-if (!process.env.FIREBASE_SERVICE_ACCOUNT) {
-  console.error("❌ FIREBASE_SERVICE_ACCOUNT environment variable is missing!");
-  throw new Error("Missing FIREBASE_SERVICE_ACCOUNT environment variable");
-}
-
 let serviceAccount;
-try {
-  serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
-} catch (err) {
-  console.error("❌ FIREBASE_SERVICE_ACCOUNT environment variable is invalid JSON!");
-  throw err;
+
+if (process.env.NODE_ENV === "production") {
+  // In production (e.g., Vercel, Heroku), load from environment variable
+  if (!process.env.FIREBASE_SERVICE_ACCOUNT) {
+    console.error("❌ FIREBASE_SERVICE_ACCOUNT is missing in production!");
+    throw new Error("Missing FIREBASE_SERVICE_ACCOUNT environment variable");
+  }
+
+  try {
+    serviceAccount = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT);
+  } catch (err) {
+    console.error("❌ Invalid FIREBASE_SERVICE_ACCOUNT JSON in production");
+    throw err;
+  }
+} else {
+  // In development, use local serviceAccountKey.json
+  try {
+    serviceAccount = require("./serviceAccountKey.json");
+  } catch (err) {
+    console.error("❌ Missing or invalid serviceAccountKey.json in development");
+    throw err;
+  }
 }
 
 admin.initializeApp({

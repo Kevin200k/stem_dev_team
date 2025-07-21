@@ -12,3 +12,53 @@ exports.getAllCourses = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+
+exports.saveExistingCourseForUser = async (req, res) => {
+  const { userId, courseId } = req.body;
+
+  if (!userId || !courseId) {
+    return res.status(400).json({ error: "Missing userId or courseId" });
+  }
+
+  try {
+    const db = admin.firestore();
+
+    // Fetch the course from global courses collection
+    const courseRef = db.collection("courses").doc(courseId);
+    const courseSnap = await courseRef.get();
+
+    if (!courseSnap.exists) {
+      return res.status(404).json({ error: "Course not found" });
+    }
+
+    const courseData = courseSnap.data();
+    const now = new Date().toISOString();
+
+    // Save course metadata for user
+    const userCourseRef = db
+      .collection("users")
+      .doc(userId)
+      .collection("courses")
+      .doc(courseId);
+
+    const userCourse = {
+      courseId,
+      title: courseData.title,
+      addedAt: now,
+      started: false,
+      completed: false,
+      progress: 0,
+      lastAccessed: now
+    };
+
+    await userCourseRef.set(userCourse);
+
+    res.status(201).json({
+      message: "Course saved to user",
+      course: userCourse
+    });
+  } catch (err) {
+    logger.error(`Error saving course for user: ${err.message}`);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};

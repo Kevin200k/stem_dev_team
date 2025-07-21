@@ -28,6 +28,10 @@ app.use("/api/courses", courseRoutes);
 const uploadRoutes = require("./routes/uploadRoutes");
 app.use("/api/uploads", uploadRoutes);
 
+// 🔍 Search Route ✅ NEW
+const searchRoutes = require("./routes/searchRoutes");
+app.use("/api/search", searchRoutes);
+
 // 👤 User Routes (dashboard, profile, etc.)
 // const userRoutes = require("./routes/userRoutes");
 // app.use("/api/users", userRoutes);
