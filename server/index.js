@@ -40,5 +40,8 @@ app.use("/api/search", searchRoutes);
 const leaderboardRoutes = require("./routes/leaderboardRoutes");
 app.use("/api/leaderboard", leaderboardRoutes);
 
+const contentRoutes = require("./routes/contentRoutes");
+app.use("/api/content", contentRoutes);
+
 // 🚀 Start Server
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
