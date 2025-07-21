@@ -1,20 +1,20 @@
-const axios = require("axios");
 const admin = require("firebase-admin");
+const axios = require("axios");
+const logger = require("../utils/logger"); // optional logging utility
 
-exports.generateFullCourseContent = async (req, res) => {
-  const { userId, courseId, learningStyles } = req.body;
+// Replace with your actual AI server URL
+const AI_SERVER_URL = "https://stem-dev-team.onrender.com/api/generate-lesson";
 
-  // 🛑 Validation
-  if (!userId || !courseId || typeof learningStyles !== "object") {
-    return res.status(400).json({ error: "Missing or invalid fields: userId, courseId, or learningStyles" });
-  }
-
+exports.generateContent = async (req, res) => {
   try {
-    const db = admin.firestore();
+    const { courseId, userId, learningStyles } = req.body;
 
-    // 🔍 Step 1: Fetch the course document
-    const courseRef = db.collection("courses").doc(courseId);
-    const courseSnap = await courseRef.get();
+    if (!courseId || !userId || !learningStyles) {
+      return res.status(400).json({ error: "Missing courseId, userId, or learningStyles" });
+    }
+
+    // 🔍 1. Fetch the course
+    const courseSnap = await admin.firestore().collection("courses").doc(courseId).get();
 
     if (!courseSnap.exists) {
       return res.status(404).json({ error: "Course not found" });
@@ -23,16 +23,12 @@ exports.generateFullCourseContent = async (req, res) => {
     const courseData = courseSnap.data();
     const schemeId = courseData.schemeOfWorkandObjectivesId;
 
-    if (!schemeId) {
-      return res.status(400).json({ error: "Course is missing a schemeOfWorkandObjectivesId" });
-    }
-
-    console.log("✅ Found Course:", courseData.title || "Untitled");
-    console.log("🔗 Scheme ID:", schemeId);
-
-    // 🔍 Step 2: Fetch the Scheme of Work & Objectives
-    const schemeRef = db.collection("schemeOfWorkandObjectives").doc(schemeId);
-    const schemeSnap = await schemeRef.get();
+    // 🧠 2. Fetch the corresponding scheme of work
+    const schemeSnap = await admin
+      .firestore()
+      .collection("schemeOfWorkAndObjectives") // ✅ Correct collection name
+      .doc(schemeId)
+      .get();
 
     if (!schemeSnap.exists) {
       return res.status(404).json({
@@ -42,45 +38,27 @@ exports.generateFullCourseContent = async (req, res) => {
     }
 
     const schemeData = schemeSnap.data();
-    const { subtopics = [], objectives = [] } = schemeData;
 
-    if (subtopics.length === 0 && objectives.length === 0) {
-      return res.status(400).json({ error: "Scheme of Work is empty" });
-    }
+    // 📦 3. Prepare payload for AI server
+    const payload = {
+      courseTitle: courseData.title,
+      objectives: schemeData.objectives,
+      subtopics: schemeData.subtopics,
+      learning_styles: learningStyles
+    };
 
-    // 📡 Step 3: Send to AI server
-    const response = await axios.post(
-      `${process.env.AI_SERVER_URL}/api/generate-lesson/${courseId}`,
-      {
-        subtopics,
-        objectives,
-        learning_styles: learningStyles
-      }
-    );
+    // 🤖 4. Call AI server
+    const aiResponse = await axios.post(`${AI_SERVER_URL}/${courseId}`, payload);
 
-    const aiLesson = response.data.lesson;
-
-    // 💾 Step 4: Save generated content to Firestore
-    await db
-      .collection("users")
-      .doc(userId)
-      .collection("courseContent")
-      .doc(courseId)
-      .set({
-        userId,
-        courseId,
-        content: aiLesson,
-        learningStyles,
-        generatedAt: new Date().toISOString()
-      });
-
-    return res.status(201).json({
-      message: "Lesson generated successfully",
-      lesson: aiLesson
+    // 📤 5. Return AI response to frontend
+    return res.status(200).json({
+      courseTitle: courseData.title,
+      courseId,
+      generatedLesson: aiResponse.data.lesson
     });
 
   } catch (err) {
-    console.error("❌ Error generating lesson:", err.message);
+    console.error("❌ Error generating content:", err.message);
     return res.status(500).json({ error: "Internal server error", details: err.message });
   }
 };
