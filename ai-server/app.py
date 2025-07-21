@@ -4,45 +4,45 @@ import requests
 from flask import Flask, request, jsonify
 from dotenv import load_dotenv
 
-# Load environment variables
+# Load env variables
 load_dotenv()
 
 app = Flask(__name__)
 
-# Constants
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 PROMPT_PATH = os.path.join(os.path.dirname(__file__), "prompts", "base_prompt.txt")
 
-
-# Load base prompt template from file
 def load_base_prompt():
     try:
         with open(PROMPT_PATH, "r", encoding="utf-8") as f:
             return f.read()
-    except FileNotFoundError:
-        return "You are an AI lesson generator for STEM topics. Follow the given objectives and subtopics."
-
+    except Exception as e:
+        return "You are an AI STEM lesson generator. Follow the structure and details."
 
 @app.route("/api/generate-lesson", methods=["POST"])
 def generate_lesson():
     try:
         body = request.get_json()
 
+        # Extract fields
         course_title = body.get("course_title")
         objectives = body.get("objectives")
         subtopics = body.get("subtopics")
         learning_styles = body.get("learning_styles")
+        user_id = body.get("user_id")
 
-        # Validation
-        if not course_title or not objectives or not subtopics or not learning_styles:
+        # Basic validation
+        if not all([course_title, objectives, subtopics, learning_styles]):
             return jsonify({"error": "Missing required fields"}), 400
 
+        # Load prompt
         base_prompt = load_base_prompt()
 
         # Construct final prompt
-        full_prompt = f"""{base_prompt}
+        final_prompt = f"""{base_prompt}
 
+User ID: {user_id or "N/A"}
 Course Title: {course_title}
 
 Objectives:
@@ -54,7 +54,7 @@ Subtopics:
 Learning Styles Distribution:
 {json.dumps(learning_styles, indent=2)}
 
-Generate a personalized, structured STEM lesson in JSON format based on the above.
+Return only a detailed JSON lesson plan suitable for STEM instruction based on these inputs.
 """
 
         headers = {
@@ -65,22 +65,26 @@ Generate a personalized, structured STEM lesson in JSON format based on the abov
         payload = {
             "model": "llama3-8b-8192",
             "messages": [
-                {"role": "user", "content": full_prompt}
+                {"role": "user", "content": final_prompt}
             ]
         }
 
+        # Call Groq API
         response = requests.post(GROQ_URL, headers=headers, json=payload)
+        response.raise_for_status()
         data = response.json()
 
         if "choices" not in data or not data["choices"]:
-            return jsonify({"error": "No content returned by AI"}), 500
+            return jsonify({"error": "AI returned no content"}), 502
 
         ai_reply = data["choices"][0]["message"]["content"]
         return jsonify({"lesson": ai_reply})
 
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": "Failed to call Groq API", "details": str(e)}), 502
 
+    except Exception as e:
+        return jsonify({"error": "Internal server error", "details": str(e)}), 500
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
