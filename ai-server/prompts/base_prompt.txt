@@ -136,6 +136,17 @@ Return the final output as a **JSON array of 10 objects**, like this:
 **"video"**:
 - `"scene_description"`: What we see on screen
 - `"script"`: At least 100 words. Fun, clear, and **explains the concept** (not just jokes or intros)
+Each `"video"` type must return a new property called `"frames"` like this:
+
+```json
+"frames": [
+  {
+    "image_prompt": "Scene description for Stable Diffusion",
+    "narration": "Audio narration for Eleven Labs for this frame",
+    "duration_seconds": 6
+  },
+  ...
+]
 
 **"text"**:
 - `"content"`: Explain in simple language. Use **bold** words and emojis where helpful.

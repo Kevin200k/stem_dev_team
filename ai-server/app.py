@@ -1,48 +1,68 @@
 import os
 import json
 import requests
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, send_from_directory
 from dotenv import load_dotenv
 
-# Load env variables
+# Load environment variables from .env
 load_dotenv()
 
 app = Flask(__name__)
+STATIC_FOLDER = os.path.join(os.path.dirname(__file__), "static")
+os.makedirs(STATIC_FOLDER, exist_ok=True)
 
+# Environment variables
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
-PROMPT_PATH = os.path.join(os.path.dirname(__file__), "prompts", "base_prompt.txt")
+ELEVENLABS_API_KEY = os.getenv("ELEVENLABS_API_KEY")
+PROMPT_PATH = os.path.join("prompts", "base_prompt.txt")
 
-def load_base_prompt():
-    try:
-        with open(PROMPT_PATH, "r", encoding="utf-8") as f:
-            return f.read()
-    except Exception as e:
-        return "You are an AI STEM lesson generator. Follow the structure and details."
+# Load prompt from file
+def load_prompt():
+    with open(PROMPT_PATH, "r", encoding="utf-8") as f:
+        return f.read()
 
+# Generate audio from ElevenLabs
+def generate_audio(text, filename="output.mp3"):
+    url = "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL"
+    headers = {
+        "xi-api-key": ELEVENLABS_API_KEY,
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "text": text,
+        "voice_settings": {
+            "stability": 0.4,
+            "similarity_boost": 0.8
+        }
+    }
+
+    response = requests.post(url, headers=headers, json=payload)
+    response.raise_for_status()
+
+    audio_path = os.path.join(STATIC_FOLDER, filename)
+    with open(audio_path, "wb") as f:
+        f.write(response.content)
+
+    return f"/static/{filename}"
+
+# Route to generate the lesson
 @app.route("/api/generate-lesson", methods=["POST"])
 def generate_lesson():
     try:
-        body = request.get_json()
+        data = request.get_json()
+        course_title = data.get("course_title")
+        objectives = data.get("objectives")
+        subtopics = data.get("subtopics")
+        learning_styles = data.get("learning_styles")
+        user_id = data.get("user_id", "default_user")
 
-        # Extract fields
-        course_title = body.get("course_title")
-        objectives = body.get("objectives")
-        subtopics = body.get("subtopics")
-        learning_styles = body.get("learning_styles")
-        user_id = body.get("user_id")
-
-        # Basic validation
         if not all([course_title, objectives, subtopics, learning_styles]):
             return jsonify({"error": "Missing required fields"}), 400
 
-        # Load prompt
-        base_prompt = load_base_prompt()
+        prompt = load_prompt()
+        full_prompt = f"""{prompt}
 
-        # Construct final prompt
-        final_prompt = f"""{base_prompt}
-
-User ID: {user_id or "N/A"}
+User ID: {user_id}
 Course Title: {course_title}
 
 Objectives:
@@ -57,35 +77,43 @@ Learning Styles Distribution:
 Return only a detailed JSON lesson plan suitable for STEM instruction based on these inputs.
 """
 
-        headers = {
-            "Authorization": f"Bearer {GROQ_API_KEY}",
-            "Content-Type": "application/json"
-        }
-
-        payload = {
-            "model": "llama3-8b-8192",
-            "messages": [
-                {"role": "user", "content": final_prompt}
-            ]
-        }
-
-        # Call Groq API
-        response = requests.post(GROQ_URL, headers=headers, json=payload)
+        # Send to Groq
+        response = requests.post(
+            "https://api.groq.com/openai/v1/chat/completions",
+            headers={
+                "Authorization": f"Bearer {GROQ_API_KEY}",
+                "Content-Type": "application/json"
+            },
+            json={
+                "model": "llama3-8b-8192",
+                "messages": [{"role": "user", "content": full_prompt}]
+            }
+        )
         response.raise_for_status()
-        data = response.json()
+        ai_reply = response.json()["choices"][0]["message"]["content"]
 
-        if "choices" not in data or not data["choices"]:
-            return jsonify({"error": "AI returned no content"}), 502
+        # Optional: generate audio from the first visual/audio_visual/text step
+        audio_url = None
+        try:
+            lesson = json.loads(ai_reply)
+            for step in lesson:
+                if step["type"] in ["text", "video", "audio_visual"]:
+                    text = step.get("script") or step.get("content")
+                    if text:
+                        audio_url = generate_audio(text, filename=f"{user_id}.mp3")
+                    break
+        except Exception as e:
+            print("Audio generation failed:", e)
 
-        ai_reply = data["choices"][0]["message"]["content"]
-        return jsonify({"lesson": ai_reply})
-
-    except requests.exceptions.RequestException as e:
-        return jsonify({"error": "Failed to call Groq API", "details": str(e)}), 502
+        return jsonify({"lesson": ai_reply, "audio_url": audio_url})
 
     except Exception as e:
-        return jsonify({"error": "Internal server error", "details": str(e)}), 500
+        return jsonify({"error": "Server error", "details": str(e)}), 500
+
+# Serve audio
+@app.route("/static/<path:filename>")
+def static_files(filename):
+    return send_from_directory(STATIC_FOLDER, filename)
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port, debug=True)
+    app.run(debug=True, port=int(os.environ.get("PORT", 5000)))
