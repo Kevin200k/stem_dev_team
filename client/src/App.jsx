@@ -20,6 +20,7 @@ import Videos from './pages/Videos'
 import Addfile from './pages/Addfile'
 import Search from './pages/Search'
 import Settings from './pages/Settings'
+import CourseDetailPage from './pages/CourseDetail';
 import { SearchProvider } from './context/SearchContext'
 
 const router = createBrowserRouter(
@@ -43,6 +44,9 @@ const router = createBrowserRouter(
         <Route path="/videos" element={<Videos />} />
         <Route path="/courses/file-upload" element={<Addfile />} />
         <Route path="/search" element={<Search />} />
+        
+        {/* ✅ Dynamic course detail route */}
+        <Route path="/courses/:courseId" element={<CourseDetailPage />} />
       </Route>
 
       <Route path="/settings" element={<Settings />} />
