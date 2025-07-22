@@ -20,6 +20,7 @@ import Videos from './pages/Videos'
 import Addfile from './pages/Addfile'
 import Search from './pages/Search'
 import Settings from './pages/Settings'
+import LearningCharacters from './pages/LearningCharacters'
 import { SearchProvider } from './context/SearchContext'
 
 const router = createBrowserRouter(
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
     <>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
+      <Route path="/learning-character" element={<LearningCharacters />} />
       <Route index element={<HomePage />} />
 
       <Route path="/" element={<MainLayout />}>
