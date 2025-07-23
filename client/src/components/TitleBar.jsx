@@ -1,10 +1,12 @@
 import React from 'react'; 
 import { Mic, Bell, User, Menu, Search } from 'lucide-react'; // ✅ Added Search here
 import { useNavigate } from 'react-router-dom';
+import { useSearch } from '../context/SearchContext';
 import tanjiro from '../assets/avatars/tanjiro.jpg';
 
 
 const TitleBar = ({ setShowSidebar }) => {
+  const { query, setQuery } = useSearch();
   const navigate = useNavigate();
 
   const handleSearchFocus = () => {
@@ -30,6 +32,7 @@ const TitleBar = ({ setShowSidebar }) => {
           <input
             type="text"
             placeholder="Search Courses"
+            value={query}
             onClick={handleSearchFocus}
             className="w-full h-[40px] pl-10 pr-5 text-sm text-gray-700 border-2 border-gray-200 placeholder-gray-500 rounded-full bg-gray-50 focus:ring-2 focus:ring-purple-400 focus:outline-none transition-all duration-300"
           />
@@ -44,12 +47,14 @@ const TitleBar = ({ setShowSidebar }) => {
 
         {/* Mobile search trigger */}
         <div className="block md:hidden">
-          <div
+          <input
             onClick={handleSearchFocus}
-            className="flex items-center bg-purple-50 rounded-full px-4 py-2 text-gray-500 text-sm cursor-pointer border border-gray-300"
-          >
-            Search...
-          </div>
+            onChange={(e) => setQuery(e.target.value)}
+            type='text'
+            value={query}
+            placeholder='Search'
+            className="flex items-center bg-purple-50 rounded-full w-28 px-4 py-2 text-gray-500 text-sm border-gray-300"
+          />
         </div>
 
         <div className="w-[48px] h-[48px] flex items-center justify-center rounded-full cursor-pointer bg-transparent bg-purple-100 hover:bg-gray-200 transition-colors duration-200">
