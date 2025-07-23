@@ -99,7 +99,8 @@ const SignupPage = () => {
         username: user.displayName || '',
       });
 
-      navigate('/dashboard');
+      navigate('/learning-character');
+      // navigate('/dashboard');
     } catch (err) {
       setError(err.message);
     }
@@ -124,7 +125,8 @@ const SignupPage = () => {
         username: user.displayName || '',
       });
 
-      navigate('/dashboard');
+      navigate('/learning-character');
+      // navigate('/dashboard');
     } catch (err) {
       setError(err.message);
     }

@@ -26,6 +26,7 @@ import Addfile from './pages/Addfile'
 import Search from './pages/Search'
 import Settings from './pages/Settings'
 import CourseDetailPage from './pages/CourseDetail'
+import LearningCharacters from './pages/LearningCharacters'
 import { SearchProvider } from './context/SearchContext'
 
 import RequireAuth from './components/RequireAuth'
@@ -44,6 +45,7 @@ const router = createBrowserRouter(
           <SignupPage />
         </RequireNoAuth>
       } />
+      <Route path="/learning-character" element={<LearningCharacters />} />
 
       <Route path="/" element={<MainLayout />}>
         <Route path="/dashboard" element={
