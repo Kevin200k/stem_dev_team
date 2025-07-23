@@ -1,6 +1,11 @@
 import React from 'react'
-import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom'
-import ProtectedRoutes from './utils/ProtectedRoutes'
+import {
+  Route,
+  createBrowserRouter,
+  createRoutesFromElements,
+  RouterProvider
+} from 'react-router-dom'
+
 import SignupPage from './pages/SignupPage'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
@@ -20,36 +25,105 @@ import Videos from './pages/Videos'
 import Addfile from './pages/Addfile'
 import Search from './pages/Search'
 import Settings from './pages/Settings'
-import CourseDetailPage from './pages/CourseDetail';
+import CourseDetailPage from './pages/CourseDetail'
 import { SearchProvider } from './context/SearchContext'
+
+import RequireAuth from './components/RequireAuth'
+import RequireNoAuth from './components/RequireNoAuth'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage />} />
-      <Route index element={<HomePage />} />
+      <Route path="/login" element={
+        <RequireNoAuth>
+          <LoginPage />
+        </RequireNoAuth>
+      } />
+      <Route index element={
+        <RequireNoAuth>
+          <SignupPage />
+        </RequireNoAuth>
+      } />
 
       <Route path="/" element={<MainLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/courses" element={<Courses />} />
-        <Route path="/courses/math-001" element={<MathematicsCourse />} />
-        <Route path="/courses/math-002" element={<SecondMathematicsCourses />} />
-        <Route path="/courses/eng-003" element={<SecondEnglishCourse />} />
-        <Route path="/courses/eng-002" element={<EnglishCourse />} />
-        <Route path="/courses/bio-001" element={<BiologyCourse />} />
-        <Route path="/courses/sci-003" element={<PhysicsCourse />} />
-        <Route path="/courses/hist-004" element={<History />} />
-        <Route path="/test-me" element={<TestMe />} />
-        <Route path="/videos" element={<Videos />} />
-        <Route path="/courses/file-upload" element={<Addfile />} />
-        <Route path="/search" element={<Search />} />
-        
-        {/* ✅ Dynamic course detail route */}
-        <Route path="/courses/:courseId" element={<CourseDetailPage />} />
+        <Route path="/dashboard" element={
+          <RequireAuth>
+            <Dashboard />
+          </RequireAuth>
+        } />
+        <Route path="/courses" element={
+          <RequireAuth>
+            <Courses />
+          </RequireAuth>
+        } />
+        <Route path="/courses/math-001" element={
+          <RequireAuth>
+            <MathematicsCourse />
+          </RequireAuth>
+        } />
+        <Route path="/courses/math-002" element={
+          <RequireAuth>
+            <SecondMathematicsCourses />
+          </RequireAuth>
+        } />
+        <Route path="/courses/eng-003" element={
+          <RequireAuth>
+            <SecondEnglishCourse />
+          </RequireAuth>
+        } />
+        <Route path="/courses/eng-002" element={
+          <RequireAuth>
+            <EnglishCourse />
+          </RequireAuth>
+        } />
+        <Route path="/courses/bio-001" element={
+          <RequireAuth>
+            <BiologyCourse />
+          </RequireAuth>
+        } />
+        <Route path="/courses/sci-003" element={
+          <RequireAuth>
+            <PhysicsCourse />
+          </RequireAuth>
+        } />
+        <Route path="/courses/hist-004" element={
+          <RequireAuth>
+            <History />
+          </RequireAuth>
+        } />
+        <Route path="/test-me" element={
+          <RequireAuth>
+            <TestMe />
+          </RequireAuth>
+        } />
+        <Route path="/videos" element={
+          <RequireAuth>
+            <Videos />
+          </RequireAuth>
+        } />
+        <Route path="/courses/file-upload" element={
+          <RequireAuth>
+            <Addfile />
+          </RequireAuth>
+        } />
+        <Route path="/search" element={
+          <RequireAuth>
+            <Search />
+          </RequireAuth>
+        } />
+        <Route path="/courses/:courseId" element={
+          <RequireAuth>
+            <CourseDetailPage />
+          </RequireAuth>
+        } />
       </Route>
 
-      <Route path="/settings" element={<Settings />} />
+      <Route path="/settings" element={
+        <RequireAuth>
+          <Settings />
+        </RequireAuth>
+      } />
+
       <Route path="*" element={<NotFoundPage />} />
     </>
   )

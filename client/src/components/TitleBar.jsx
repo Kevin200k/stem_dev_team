@@ -34,6 +34,7 @@ const TitleBar = ({ setShowSidebar }) => {
             placeholder="Search Courses"
             value={query}
             onClick={handleSearchFocus}
+            onChange={(e) => setQuery(e.target.value)}
             className="w-full h-[40px] pl-10 pr-5 text-sm text-gray-700 border-2 border-gray-200 placeholder-gray-500 rounded-full bg-gray-50 focus:ring-2 focus:ring-purple-400 focus:outline-none transition-all duration-300"
           />
           {/* <div className="ml-3 w-[48px] h-[48px] rounded-full flex justify-center items-center cursor-pointer hover:bg-purple-200 transition-colors duration-200">

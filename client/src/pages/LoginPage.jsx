@@ -9,6 +9,7 @@ import {
 import { auth, googleProvider } from '../firebase';
 import LoginHalf from '../components/LoginHalf';
 import Button from '../components/Button';
+import AuthManager from '../utils/AuthManager'; // <-- import AuthManager
 
 const LoginPage = () => {
   const [email, setEmail] = useState('');
@@ -26,6 +27,14 @@ const LoginPage = () => {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log('Logged in:', userCredential.user);
+
+      // Store user in localStorage via AuthManager
+      AuthManager.login({
+        uid: userCredential.user.uid,
+        email: userCredential.user.email,
+        displayName: userCredential.user.displayName,
+      });
+
       navigate('/dashboard');
     } catch (err) {
       console.error('Login error:', err);
@@ -36,9 +45,18 @@ const LoginPage = () => {
   };
 
   const handleGoogleLogin = async () => {
+    setError(null);
     try {
       const result = await signInWithPopup(auth, googleProvider);
       console.log('Google login success:', result.user);
+
+      // Store user in localStorage via AuthManager
+      AuthManager.login({
+        uid: result.user.uid,
+        email: result.user.email,
+        displayName: result.user.displayName,
+      });
+
       navigate('/dashboard');
     } catch (err) {
       console.error('Google login error:', err);

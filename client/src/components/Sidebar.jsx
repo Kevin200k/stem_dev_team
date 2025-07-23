@@ -13,6 +13,7 @@ import { auth } from "../firebase";
 import ClassMates from './ClassMates';
 import SettingsModal from './SettingsModal';
 import image2 from '../assets/icon/image2.png';
+import AuthManager from '../utils/AuthManager'; // 🔥 added line
 
 const Sidebar = () => {
   const [showSettings, setShowSettings] = useState(false);
@@ -29,6 +30,7 @@ const Sidebar = () => {
   const handleSignout = async () => {
     try {
       await signOut(auth);
+      AuthManager.logout(); // 🔥 clear localStorage
       navigate("/login");
     } catch (error) {
       console.error("Error signing out:", error);
@@ -57,7 +59,7 @@ const Sidebar = () => {
   }, [showSettings]);
 
   return (
-    <aside className='absolute md:relative  bg-white w-96 md:w-56 h-full p-4 flex flex-col shadow-lg z-50'>
+    <aside className='absolute md:relative bg-white w-96 md:w-56 h-full p-4 flex flex-col shadow-lg z-50'>
 
       {/* Logo */}
       <div className="flex items-center justify-start mb-6 pl-2">
