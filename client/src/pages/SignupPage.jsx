@@ -84,7 +84,7 @@ const SignupPage = () => {
         provider: 'google',
       }, { merge: true });
 
-      navigate('/dashboard');
+      navigate('/learning-character');
     } catch (err) {
       setError(err.message);
     }
@@ -103,7 +103,7 @@ const SignupPage = () => {
         provider: 'facebook',
       }, { merge: true });
 
-      navigate('/dashboard');
+      navigate('/learning-character');
     } catch (err) {
       setError(err.message);
     }
