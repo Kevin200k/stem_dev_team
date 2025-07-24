@@ -15,7 +15,7 @@ const VerifyEmailModal = ({ onClose }) => {
       if (user.emailVerified) {
         alert('Email verified!');
         onClose();
-        navigate('/dashboard');
+        navigate('/learning-character');
       } else {
         alert('Email not verified yet.');
       }

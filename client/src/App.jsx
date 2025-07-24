@@ -25,12 +25,8 @@ import Videos from './pages/Videos'
 import Addfile from './pages/Addfile'
 import Search from './pages/Search'
 import Settings from './pages/Settings'
-<<<<<<< HEAD
-import CourseDetailPage from './pages/CourseDetail';
-=======
 import CourseDetailPage from './pages/CourseDetail'
 import LearningCharacters from './pages/LearningCharacters'
->>>>>>> main
 import { SearchProvider } from './context/SearchContext'
 
 import RequireAuth from './components/RequireAuth'
@@ -49,7 +45,10 @@ const router = createBrowserRouter(
           <SignupPage />
         </RequireNoAuth>
       } />
-      <Route path="/learning-character" element={<LearningCharacters />} />
+      <Route path="/learning-character" element={
+        <RequireAuth>
+          <LearningCharacters />
+        </RequireAuth>} />
 
       <Route path="/" element={<MainLayout />}>
         <Route path="/dashboard" element={
