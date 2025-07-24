@@ -2,6 +2,74 @@ import React, { useEffect, useState } from 'react';
 import { ArrowLeft, Search as SearchIcon } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSearch } from '../context/SearchContext';
+import AuthManager from '../utils/AuthManager';
+
+const CustomLoader = () => {
+  return (
+    <div
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        height: '100vh',
+        width: '100vw',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: 'transparent',
+        zIndex: 9999,
+      }}
+    >
+      {[...Array(6)].map((_, i) => (
+        <div
+          key={i}
+          className="loader"
+          style={{ animationDelay: `${0.15 * (i + 1)}s`, position: 'absolute' }}
+        >
+          <div className="dot" />
+        </div>
+      ))}
+
+      <style>{`
+        .loader {
+          height: 5px;
+          width: 1px;
+          animation: rotate0234 3.5s linear infinite;
+        }
+
+        .loader .dot {
+          top: 30px;
+          height: 7px;
+          width: 7px;
+          background: #9333ea; /* Tailwind purple-600 */
+          border-radius: 50%;
+          position: relative;
+        }
+
+        @keyframes rotate0234 {
+          30% {
+            transform: rotate(220deg);
+          }
+          40% {
+            transform: rotate(450deg);
+            opacity: 1;
+          }
+          75% {
+            transform: rotate(720deg);
+            opacity: 1;
+          }
+          76% {
+            opacity: 0;
+          }
+          100% {
+            opacity: 0;
+            transform: rotate(0deg);
+          }
+        }
+      `}</style>
+    </div>
+  );
+};
 
 const SearchPage = () => {
   const { query } = useSearch();
@@ -9,7 +77,8 @@ const SearchPage = () => {
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  const userId = "2ls6Jv40FfVIOQfLZyasfzjsYbf1"; // Normally from auth
+  const currentUser = AuthManager.getCurrentUser();
+  const userId = currentUser?.id;
 
   const handleBack = () => navigate(-1);
 
@@ -64,8 +133,9 @@ const SearchPage = () => {
           <h2 className="text-2xl font-bold mb-4 text-gray-800">
             Results for: <span className="text-purple-600">{query}</span>
           </h2>
+
           {loading ? (
-            <p className="text-gray-500 mt-4">Searching...</p>
+            <CustomLoader />
           ) : results.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {results.map(course => (

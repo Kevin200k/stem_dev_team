@@ -14,6 +14,8 @@ import { auth, db, googleProvider, facebookProvider } from '../firebase';
 import SignupHalf from '../components/SignupHalf';
 import Button from '../components/Button';
 import VerifyEmailModal from '../components/VerifyEmailModal';
+import AuthManager from '../utils/AuthManager'; // <-- import AuthManager
+
 
 const SignupPage = () => {
   const [username, setUsername] = useState('');
@@ -60,6 +62,13 @@ const SignupPage = () => {
         provider: 'email',
       });
 
+      // Save user info in localStorage
+      AuthManager.login({
+        userId: user.uid,
+        email: user.email,
+        username,
+      });
+
       await sendEmailVerification(user);
       setSendingCode(true);
       setVerificationEmail(user.email);
@@ -84,6 +93,12 @@ const SignupPage = () => {
         provider: 'google',
       }, { merge: true });
 
+      AuthManager.login({
+        userId: user.uid,
+        email: user.email,
+        username: user.displayName || '',
+      });
+
       navigate('/dashboard');
     } catch (err) {
       setError(err.message);
@@ -102,6 +117,12 @@ const SignupPage = () => {
         createdAt: new Date(),
         provider: 'facebook',
       }, { merge: true });
+
+      AuthManager.login({
+        userId: user.uid,
+        email: user.email,
+        username: user.displayName || '',
+      });
 
       navigate('/dashboard');
     } catch (err) {
