@@ -22,28 +22,28 @@ def load_prompt():
         return f.read()
 
 # Generate audio from ElevenLabs
-def generate_audio(text, filename="output.mp3"):
-    url = "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL"
-    headers = {
-        "xi-api-key": ELEVENLABS_API_KEY,
-        "Content-Type": "application/json"
-    }
-    payload = {
-        "text": text,
-        "voice_settings": {
-            "stability": 0.4,
-            "similarity_boost": 0.8
-        }
-    }
+# def generate_audio(text, filename="output.mp3"):
+#     url = "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL"
+#     headers = {
+#         "xi-api-key": ELEVENLABS_API_KEY,
+#         "Content-Type": "application/json"
+#     }
+#     payload = {
+#         "text": text,
+#         "voice_settings": {
+#             "stability": 0.4,
+#             "similarity_boost": 0.8
+#         }
+#     }
 
-    response = requests.post(url, headers=headers, json=payload)
-    response.raise_for_status()
+#     response = requests.post(url, headers=headers, json=payload)
+#     response.raise_for_status()
 
-    audio_path = os.path.join(STATIC_FOLDER, filename)
-    with open(audio_path, "wb") as f:
-        f.write(response.content)
+#     audio_path = os.path.join(STATIC_FOLDER, filename)
+#     with open(audio_path, "wb") as f:
+#         f.write(response.content)
 
-    return f"/static/{filename}"
+#     return f"/static/{filename}"
 
 # Route to generate the lesson
 @app.route("/api/generate-lesson", methods=["POST"])
@@ -92,20 +92,20 @@ Return only a detailed JSON lesson plan suitable for STEM instruction based on t
         response.raise_for_status()
         ai_reply = response.json()["choices"][0]["message"]["content"]
 
-        # Optional: generate audio from the first visual/audio_visual/text step
-        audio_url = None
-        try:
-            lesson = json.loads(ai_reply)
-            for step in lesson:
-                if step["type"] in ["text", "video", "audio_visual"]:
-                    text = step.get("script") or step.get("content")
-                    if text:
-                        audio_url = generate_audio(text, filename=f"{user_id}.mp3")
-                    break
-        except Exception as e:
-            print("Audio generation failed:", e)
+        # # Optional: generate audio from the first visual/audio_visual/text step
+        # audio_url = None
+        # try:
+        #     lesson = json.loads(ai_reply)
+        #     for step in lesson:
+        #         if step["type"] in ["text", "video", "audio_visual"]:
+        #             text = step.get("script") or step.get("content")
+        #             if text:
+        #                 audio_url = generate_audio(text, filename=f"{user_id}.mp3")
+        #             break
+        # except Exception as e:
+        #     print("Audio generation failed:", e)
 
-        return jsonify({"lesson": ai_reply, "audio_url": audio_url})
+        # return jsonify({"lesson": ai_reply, "audio_url": audio_url})
 
     except Exception as e:
         return jsonify({"error": "Server error", "details": str(e)}), 500

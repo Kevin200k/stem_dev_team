@@ -2,7 +2,7 @@ const admin = require("firebase-admin");
 const axios = require("axios");
 const logger = require("../utils/logger");
 
-const AI_SERVER_URL = "https://stem-dev-team.onrender.com/api/generate-lesson";
+const AI_SERVER_URL = "http://127.0.0.1:5000/api/generate-lesson";
 
 exports.generateContent = async (req, res) => {
   try {
