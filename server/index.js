@@ -2,12 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const admin = require("firebase-admin");
 
-// Firebase Admin Initialization
-admin.initializeApp({
-  credential: admin.credential.cert(require("./serviceAccountKey.json")),
-});
+// Import Firebase admin from firebaseConfig.js
+const { admin } = require("./firebaseConfig");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -31,6 +28,10 @@ app.use("/api/courses", courseRoutes);
 const uploadRoutes = require("./routes/uploadRoutes");
 app.use("/api/uploads", uploadRoutes);
 
+// 🔍 Search Route ✅ NEW
+const searchRoutes = require("./routes/searchRoutes");
+app.use("/api/search", searchRoutes);
+
 // 👤 User Routes (dashboard, profile, etc.)
 // const userRoutes = require("./routes/userRoutes");
 // app.use("/api/users", userRoutes);
@@ -38,6 +39,9 @@ app.use("/api/uploads", uploadRoutes);
 // 🏆 Leaderboard / Progress / Streaks
 const leaderboardRoutes = require("./routes/leaderboardRoutes");
 app.use("/api/leaderboard", leaderboardRoutes);
+
+const contentRoutes = require("./routes/contentRoutes");
+app.use("/api/content", contentRoutes);
 
 // 🚀 Start Server
 app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
