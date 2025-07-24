@@ -79,7 +79,7 @@ const LoginPage = () => {
           </div>
           <div className="text-sm">
             Don&apos;t have an account?{' '}
-            <NavLink to="/signup" className="font-bold text-purple-600 hover:underline">
+            <NavLink to="/" className="font-bold text-purple-600 hover:underline">
               Sign Up
             </NavLink>
           </div>

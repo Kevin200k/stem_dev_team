@@ -99,7 +99,7 @@ const SignupPage = () => {
         username: user.displayName || '',
       });
 
-      navigate('/dashboard');
+      navigate('/learning-character');
     } catch (err) {
       setError(err.message);
     }
@@ -141,7 +141,7 @@ const SignupPage = () => {
           </div>
           <div>
             Already a member?{' '}
-            <span onClick={() => navigate('/login')} className="text-purple-600 cursor-pointer hover:underline">Sign in</span>
+            <span onClick={() => navigate('/login')} className="font-bold text-purple-600 cursor-pointer hover:underline">Sign in</span>
           </div>
         </div>
 

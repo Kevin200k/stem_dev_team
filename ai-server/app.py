@@ -22,28 +22,28 @@ def load_prompt():
         return f.read()
 
 # Generate audio from ElevenLabs
-def generate_audio(text, filename="output.mp3"):
-    url = "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL"
-    headers = {
-        "xi-api-key": ELEVENLABS_API_KEY,
-        "Content-Type": "application/json"
-    }
-    payload = {
-        "text": text,
-        "voice_settings": {
-            "stability": 0.4,
-            "similarity_boost": 0.8
-        }
-    }
+# def generate_audio(text, filename="output.mp3"):
+#     url = "https://api.elevenlabs.io/v1/text-to-speech/EXAVITQu4vr4xnSDxMaL"
+#     headers = {
+#         "xi-api-key": ELEVENLABS_API_KEY,
+#         "Content-Type": "application/json"
+#     }
+#     payload = {
+#         "text": text,
+#         "voice_settings": {
+#             "stability": 0.4,
+#             "similarity_boost": 0.8
+#         }
+#     }
 
-    response = requests.post(url, headers=headers, json=payload)
-    response.raise_for_status()
+#     response = requests.post(url, headers=headers, json=payload)
+#     response.raise_for_status()
 
-    audio_path = os.path.join(STATIC_FOLDER, filename)
-    with open(audio_path, "wb") as f:
-        f.write(response.content)
+#     audio_path = os.path.join(STATIC_FOLDER, filename)
+#     with open(audio_path, "wb") as f:
+#         f.write(response.content)
 
-    return f"/static/{filename}"
+#     return f"/static/{filename}"
 
 # Route to generate the lesson
 @app.route("/api/generate-lesson", methods=["POST"])

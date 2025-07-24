@@ -1,4 +1,5 @@
 import React from 'react'
+import signupImage from '../assets/icon/signup.svg'
 
 const SignupHalf = () => {
   return (
@@ -6,7 +7,7 @@ const SignupHalf = () => {
       <div className='relative min-h-screen overflow-hidden'>
 
         <div className='absolute h-[96rem] left-0 w-full bg-purple-500 rotate-4 transform 
-        translate-x-[5rem] translate-y-[-5rem] border-2 border-black'>
+        translate-x-[5rem] translate-y-[-5rem] borderr-0'>
           
         </div>
         <div className='absolute top-0 h-24 w-2xl bg-purple-700 rounded-2xl rotate-[-9deg] transform 
@@ -19,9 +20,13 @@ const SignupHalf = () => {
         </div>
 
         <div className='absolute h-[20rem] w-[20rem] bg-purple-400 bottom-4 transform translate-x-[30rem] 
-        translate-y-[12rem] rotate-45 rounded-4xl border-2 border-black'>
+        translate-y-[12rem] rotate-45 rounded-4xl'>
 
         </div>
+          {/* <div className="absolute inset-0 z-50 flex items-center justify-center">
+        <img src={signupImage} alt="Signup" className="bg-white p-4 w-[500px] max-w-full h-auto rounded-4xl" />
+      </div> */}
+
         
         <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20
                     bg-white/10 backdrop-blur-sm rounded-lg shadow-xl
@@ -31,7 +36,6 @@ const SignupHalf = () => {
             Your journey to achieving greatness begins here. Sign up and discover a world of possibilities tailored just for you.
           </p>
         </div>
-
       </div>
     </div>
   )
