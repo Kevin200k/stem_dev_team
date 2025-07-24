@@ -125,7 +125,7 @@ const LearningCharacters = () => {
                       ${selectedCharacter
                         ? 'bg-gradient-to-r from-purple-500 to-indigo-600 hover:scale-105 hover:shadow-xl text-white'
                         : 'bg-gray-300 text-gray-500 cursor-not-allowed'}`}
-          onClick={() => navigate('/dashboard')}
+          onClick={() => navigate('/age-group')}
         >
           {selectedCharacter ? `Continue as ${selectedCharacter}` : 'Continue'}
         </button>

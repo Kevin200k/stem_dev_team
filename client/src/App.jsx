@@ -27,6 +27,7 @@ import Search from './pages/Search'
 import Settings from './pages/Settings'
 import CourseDetailPage from './pages/CourseDetail'
 import LearningCharacters from './pages/LearningCharacters'
+import AgeGroup from './pages/AgeGroup'
 import { SearchProvider } from './context/SearchContext'
 
 import RequireAuth from './components/RequireAuth'
@@ -49,6 +50,8 @@ const router = createBrowserRouter(
         <RequireAuth>
           <LearningCharacters />
         </RequireAuth>} />
+      
+      <Route path="/age-group" element={ <AgeGroup /> } />
 
       <Route path="/" element={<MainLayout />}>
         <Route path="/dashboard" element={

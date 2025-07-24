@@ -12,7 +12,7 @@ const CourseDetailPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const generateContent = async () => {
+    const generateContent = async () => {   
       try {
         const response = await fetch("http://localhost:5000/api/content/generate", {
           method: "POST",
