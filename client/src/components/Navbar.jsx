@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import imageIcon from "../assets/icon/image2.png";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -14,19 +13,24 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed w-full px-10 top-0 left-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-0 left-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-black shadow-lg'
+          ? 'bg-white shadow-lg'
           : 'bg-transparent border-b-[px] border-[#2b2f62]'
       }`}
     >
       <div className="w-full px-6 md:px-16 lg:px-10 py-5 flex items-center justify-between">
-        <img src={imageIcon} className='h-7' alt="Icon" />
+        <div className={`text-[21px] font-medium transition-colors duration-300 ${
+          scrolled ? 'text-gray-900' : 'text-white'
+        }`}>
+          LearnHub.
+          <span className='text-[#a972ec]'>ai</span>
+        </div>
         <nav className="hidden md:flex space-x-7 font-medium text-[15px]">
           <a
             href="#features"
             className={`transition-colors duration-300 ${
-              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-black hover:text-[#DA70D6]'
+              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-white hover:text-[#DA70D6]'
             }`}
           >
             Features
@@ -34,7 +38,7 @@ export default function Navbar() {
           <a
             href="#how"
             className={`transition-colors duration-300 ${
-              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-black hover:text-[#DA70D6]'
+              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-white hover:text-[#DA70D6]'
             }`}
           >
             How It Works
@@ -42,7 +46,7 @@ export default function Navbar() {
           <a
             href="#pricing"
             className={`transition-colors duration-300 ${
-              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-black hover:text-[#DA70D6]'
+              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-white hover:text-[#DA70D6]'
             }`}
           >
             Pricing
@@ -50,7 +54,7 @@ export default function Navbar() {
           <a
             href="#contact"
             className={`transition-colors duration-300 ${
-              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-black hover:text-[#DA70D6]'
+              scrolled ? 'text-gray-900 hover:text-[#DA70D6]' : 'text-white hover:text-[#DA70D6]'
             }`}
           >
             Contact
@@ -59,10 +63,10 @@ export default function Navbar() {
              <div className="flex gap-3">
           {/* Login Button */}
           <button
-            className={`ibm-font px-5 py-1.5 rounded-3xl text-[16px] hover:scale-105 transition border ${
+            className={`px-5 py-1.5 rounded-3xl text-[16px] hover:scale-105 transition border ${
               scrolled
-                ? 'bg-black text-[#DA70D6] border-[#DA70D6] hover:bg-[#fbe9f3]'
-                : 'bg-transparent text-black border-1 border-transparent hover:bg-black hover:text-[#2b2f62] hover:border-black'
+                ? 'bg-white text-[#DA70D6] border-[#DA70D6] hover:bg-[#fbe9f3]'
+                : 'bg-transparent text-white border-1 border-transparent hover:bg-white hover:text-[#2b2f62] hover:border-white'
             }`}
           >
             Login
@@ -70,8 +74,8 @@ export default function Navbar() {
 
 
           {/* Sign Up Button */}
-       <button
-        className="ibm-font px-5 py-1.5 text-[16px] text-white bg-gradient-to-r from-[#9379f4] to-[#f472b6] rounded-3xl hover:scale-105 transition w-full h-full"
+      <button
+        className="px-5 py-1.5 text-[16px] text-white bg-gradient-to-tr from-[#9d5aff] to-[#d48cfa] rounded-3xl hover:scale-105 transition w-full h-full"
       >
         Sign Up
       </button>

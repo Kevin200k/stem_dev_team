@@ -9,7 +9,7 @@ const Button = () => {
         <div className="sign">
           <House />
         </div>
-        <div className="text">Homepage</div>
+        <div className="text">Level Up</div>
       </button>
     </StyledWrapper>
   );

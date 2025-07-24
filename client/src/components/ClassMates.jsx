@@ -34,8 +34,8 @@ export const classMates = [
 
 const ClassMates = () => {
   return (
-    <div className='flex flex-col border-y-2 border-gray-300'>
-      <h2 className='text-lg font-semibold text-gray-600 mb-2'>Classmates</h2>
+    <div className='flex flex-col'>
+      <h2 className='text-lg text-gray-400 mb-4 text-[14px]'>CLASSMATES</h2>
       <div className="flex flex-col gap-2">
         {classMates.slice(0, 3).map((classMate) => (
           <div
