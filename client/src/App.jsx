@@ -28,6 +28,8 @@ import Settings from './pages/Settings'
 import CourseDetailPage from './pages/CourseDetail'
 import LearningCharacters from './pages/LearningCharacters'
 import AgeGroup from './pages/AgeGroup'
+
+import { AuthProvider } from './context/AuthContext'
 import { SearchProvider } from './context/SearchContext'
 
 import RequireAuth from './components/RequireAuth'
@@ -139,9 +141,11 @@ const router = createBrowserRouter(
 
 const App = () => {
   return (
-    <SearchProvider>
-      <RouterProvider router={router} />
-    </SearchProvider>
+    <AuthProvider>
+      <SearchProvider>
+        <RouterProvider router={router} />
+      </SearchProvider>
+    </AuthProvider>
   )
 }
 

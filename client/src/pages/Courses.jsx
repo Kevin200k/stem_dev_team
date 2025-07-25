@@ -1148,6 +1148,17 @@ const CourseCard = ({ course, onCourseClick }) => {
 
 const Courses = (searchCourses) => {
 
+  const [expandedCategories, setExpandedCategories] = useState({});
+
+  const toggleCategory = (category) => {
+    setExpandedCategories(prev => ({
+      ...prev,
+      [category]: !prev[category],
+    }));
+  };
+
+
+
   const { query } = useSearch()
 
   useEffect(() => {
@@ -1178,16 +1189,32 @@ const Courses = (searchCourses) => {
 
       <div className="flex flex-col lg:flex-row gap-8 relative">
         <div className="lg:w-2/3">
-          {Object.entries(coursesByCategory).map(([category, courses]) => (
-            <div key={category} className="mb-8">
-              <h2 className="text-2xl font-bold text-purple-700 mb-4 px-4">{category}</h2>
-              <div className="grid grid-cols-1 gap-4 px-4">
-                {courses.map((course) => (
-                  <CourseCard key={course.id} course={course} onCourseClick={handleCourseClick} />
-                ))}
+          {Object.entries(coursesByCategory).map(([category, courses]) => {
+            const isExpanded = expandedCategories[category];
+            const visibleCourses = isExpanded ? courses : courses.slice(0, 3);
+
+            return (
+              <div key={category} className="mb-8">
+                <h2 className="text-2xl font-bold text-purple-700 mb-4 px-4">{category}</h2>
+                <div className="grid grid-cols-1 gap-4 px-4">
+                  {visibleCourses.map((course) => (
+                    <CourseCard key={course.id} course={course} onCourseClick={handleCourseClick} />
+                  ))}
+                </div>
+                {courses.length > 3 && (
+                  <div className="px-4 mt-2">
+                    <button
+                      onClick={() => toggleCategory(category)}
+                      className="text-sm text-purple-600 hover:underline focus:outline-none"
+                    >
+                      {isExpanded ? 'See Less' : 'See All'}
+                    </button>
+                  </div>
+                )}
               </div>
-            </div>
-          ))}
+            );
+          })}
+
         </div>
 
         <div className="lg:w-1/3 bg-white rounded-xl shadow-lg p-6 sticky top-4 h-fit">
