@@ -50,9 +50,9 @@ const AgeGroup = () => {
 
 
   return (
-    <section className="min-h-screen flex flex-col bg-gray-100">
+    <section className="min-h-screen flex flex-col p-4 bg-gray-100">
       {/* Logo Section */}
-      <div className="w-full flex justify-center p-3 md:justify-start">
+      <div className="w-full flex justify-center md:justify-start">
         <img src={Logo} alt="LevelUp Logo" className="w-32 mb-6" />
       </div>
 
