@@ -2,7 +2,7 @@ const admin = require("firebase-admin");
 const axios = require("axios");
 const logger = require("../utils/logger");
 
-const AI_SERVER_URL = "http://127.0.0.1:5000/api/generate-lesson";
+const AI_SERVER_URL = "http://127.0.0.1:5001/api/generate-lesson";
 
 exports.generateContent = async (req, res) => {
   try {
@@ -53,13 +53,27 @@ exports.generateContent = async (req, res) => {
 
     const schemeData = schemeSnap.data();
 
+    // 3.5 Fetch user age group
+    const userSnap = await db.collection("users").doc(userId).get();
+    if (!userSnap.exists) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const userData = userSnap.data();
+    const ageGroup = userData.ageGroup;
+
+    if (!ageGroup) {
+      return res.status(400).json({ error: "User age group is missing" });
+    }
+
     // 4. Prepare payload for Python AI server
     const payload = {
       user_id: userId,
       course_title: courseData.title,
       objectives: schemeData.objectives,
       subtopics: schemeData.subtopics,
-      learning_styles: learningStyles
+      learning_styles: learningStyles,
+      age_group: ageGroup  // ✅ Critical fix here
     };
 
     // 5. Make request to Python AI server
@@ -74,12 +88,12 @@ exports.generateContent = async (req, res) => {
       generatedContent: generatedLesson,
       createdAt: new Date().toISOString(),
       status: "generated",
-      audioUrls: [],
-      videoUrls: [],
-      imageUrls: []
+      // audioUrls: [],
+      // videoUrls: [],
+      // imageUrls: []
     });
 
-    // 7. Link to user’s generatedLessons (reference only)
+    // 7. Link to user’s generatedLessons
     await db
       .collection("users")
       .doc(userId)
@@ -91,7 +105,7 @@ exports.generateContent = async (req, res) => {
         createdAt: new Date().toISOString()
       });
 
-    // 8. Respond
+    // 8. Return response
     return res.status(200).json({
       courseId,
       courseTitle: courseData.title,

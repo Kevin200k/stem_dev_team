@@ -6,7 +6,7 @@ const LoginHalf = () => {
         <div className='relative min-h-screen overflow-hidden'>
           {/* Your existing shapes */}
           <div className='absolute h-[96rem] left-0 w-full bg-purple-500 rotate-4 transform
-          translate-x-[5rem] translate-y-[-5rem] border-2 border-black'>
+          translate-x-[5rem] translate-y-[-5rem]'>
 
           </div>
           <div className='absolute top-0 h-24 w-2xl bg-purple-700 rounded-2xl rotate-[-9deg] transform
@@ -19,7 +19,7 @@ const LoginHalf = () => {
           </div>
 
           <div className='absolute h-[20rem] w-[20rem] bg-purple-400 bottom-4 transform translate-x-[30rem]
-          translate-y-[12rem] rotate-45 rounded-4xl border-2 border-black'>
+          translate-y-[12rem] rotate-45 rounded-4xl'>
 
           </div>
 

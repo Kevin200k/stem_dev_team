@@ -31,4 +31,4 @@ const googleProvider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider();
 
 // Export what you need
-export { auth, db, googleProvider, facebookProvider, analytics };
+export { app, auth, db, googleProvider, facebookProvider, analytics };
