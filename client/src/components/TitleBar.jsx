@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Bell, Search } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useSearch } from '../context/SearchContext';
 import AuthManager from '../utils/AuthManager';
-import Profile from './Profile';
+import Profile from '../modal/Profile';
+import NotificationModal from '../modal/NotificationModal';
 
 const TitleBar = ({ setShowSidebar }) => {
   const { query, setQuery } = useSearch();
   const navigate = useNavigate();
   const user = AuthManager.getCurrentUser();
   const [showProfile, setShowProfile] = useState(false);
+  const [showNotifications, setShowNotification] = useState(false);
 
   const handleSearchFocus = () => {
     navigate('/search');
@@ -25,10 +27,14 @@ const TitleBar = ({ setShowSidebar }) => {
     setShowProfile(true);
   };
 
+  const handleNotificationClick = (event) => {
+    event.stopPropagation(); 
+    setShowNotification(prev => !prev);
+  };
+
   return (
     <>
-      <div className="h-20 px-4 flex items-center shadow-sm relative z-10 bg-white">
-
+      <div className="h-20 px-4 flex items-center shadow-sm relative z-10 bg-white"> 
         {/* Center: Search bar (desktop only) */}
         <div className="hidden md:flex items-center justify-center flex-1">
           <div className="flex items-center w-full max-w-xl">
@@ -48,7 +54,6 @@ const TitleBar = ({ setShowSidebar }) => {
 
         {/* Right: Icons */}
         <div className="flex items-center justify-end gap-2 flex-1">
-          {/* Mobile search input */}
           <div className="block md:hidden">
             <input
               onClick={handleSearchFocus}
@@ -60,11 +65,13 @@ const TitleBar = ({ setShowSidebar }) => {
             />
           </div>
 
-          <div className="w-[48px] h-[48px] flex items-center justify-center rounded-full cursor-pointer bg-transparent bg-purple-100 hover:bg-gray-200 transition-colors duration-200">
+          <div 
+            className="w-[48px] h-[48px] flex items-center justify-center rounded-full cursor-pointer bg-transparent bg-purple-100 hover:bg-gray-200 transition-colors duration-200 relative" 
+            onClick={ handleNotificationClick }
+          >
             <Bell size={20} className="text-gray-500" />
           </div>
 
-          {/* Avatar + Profile Panel */}
           <div
             className="w-[48px] h-[48px] flex items-center justify-center rounded-full cursor-pointer hover:bg-purple-200 transition-colors duration-200"
             onClick={handleAvatarClick}
@@ -78,6 +85,10 @@ const TitleBar = ({ setShowSidebar }) => {
         </div>
       </div>
 
+      {showNotifications && (
+        <NotificationModal onClose={() => setShowNotification(false)} />
+      )}
+      
       {showProfile && <Profile onClose={() => setShowProfile(false)} />}
     </>
   );

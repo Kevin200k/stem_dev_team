@@ -72,10 +72,6 @@ const MainBody = () => {
         </span>
         <p className="text-md text-purple-100">It's a great day to learn.</p>
       </div>
-      <div className = "w-full h-[200px] bg-amber-800">
-        <h1>Welcome, Michael Amos</h1>
-        
-      </div>
       {/* Main Grid: Courses + Stats */}
       <div className="grid gap-6 md:grid-cols-[2fr_1fr]">
 

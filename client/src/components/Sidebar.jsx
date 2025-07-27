@@ -11,7 +11,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import ClassMates from './ClassMates';
-import SettingsModal from './SettingsModal';
+import SettingsModal from '../modal/SettingsModal';
 import image2 from '../assets/icon/image2.png';
 import AuthManager from '../utils/AuthManager'; // 🔥 added line
 
@@ -117,6 +117,7 @@ const Sidebar = () => {
           <SettingsModal onClose={() => setShowSettings(false)} />
         </div>
       )}
+
     </aside>
   );
 };

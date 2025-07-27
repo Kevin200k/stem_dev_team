@@ -7,7 +7,7 @@ const SettingsModal = ({ onClose, modalRef }) => {
   return (
     <div
       ref={modalRef}
-      className="w-80 absolute bottom-10 left-56 bg-white rounded-xl shadow-lg z-20 p-4 text-sm"
+      className="w-80 absolute bottom-10 left-56 bg-white rounded-xl shadow-lg z-20 p-4 text-sm animate-fade-in"
     >
       <div className="flex items-center justify-between gap-3 px-4 py-3 hover:bg-gray-100 rounded-md cursor-pointer transition-colors">
         <div className='flex flex-row items-center'>
@@ -36,6 +36,19 @@ const SettingsModal = ({ onClose, modalRef }) => {
         <X size={20} color="red" />
         <span className="text-red-500 ml-2">Close</span>
       </div>
+
+      <style>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+          from { transform: scale(0.95); opacity: 0; }
+          to { transform: scale(1); opacity: 1; }
+        }
+        .animate-fade-in { animation: fadeIn 0.2s ease-out forwards; }
+        .animate-scale-in { animation: scaleIn 0.2s ease-out forwards; }
+      `}</style>
     </div>
   );
 };
