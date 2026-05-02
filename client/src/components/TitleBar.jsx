@@ -34,7 +34,11 @@ const TitleBar = ({ setShowSidebar }) => {
 
   return (
     <>
-      <div className="h-20 px-4 flex items-center shadow-sm relative z-10 bg-white"> 
+      <div className="h-20 px-4 flex items-center relative z-10 bg-white"
+      style={{
+        boxShadow: "4px 3px 6px -1px rgba(0, 0, 0, 0.1)"
+      }}
+      > 
         {/* Center: Search bar (desktop only) */}
         <div className="hidden md:flex items-center justify-center flex-1">
           <div className="flex items-center w-full max-w-xl">

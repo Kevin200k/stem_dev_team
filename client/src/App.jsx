@@ -28,9 +28,11 @@ import Settings from './pages/Settings'
 import CourseDetailPage from './pages/CourseDetail'
 import LearningCharacters from './pages/LearningCharacters'
 import AgeGroup from './pages/AgeGroup'
+import TestOut from './pages/TestOut'
 
 import { AuthProvider } from './context/AuthContext'
 import { SearchProvider } from './context/SearchContext'
+// import { DarkModeProvider } from './context/ThemeContext'
 
 import RequireAuth from './components/RequireAuth'
 import RequireNoAuth from './components/RequireNoAuth'
@@ -42,6 +44,15 @@ const router = createBrowserRouter(
         <RequireNoAuth>
           <LoginPage />
         </RequireNoAuth>
+
+
+      } />
+      <Route path="/homepage" element={
+        <RequireNoAuth>
+          <HomePage />
+        </RequireNoAuth>
+
+
       } />
       <Route index element={
         <RequireNoAuth>
@@ -126,15 +137,23 @@ const router = createBrowserRouter(
             <CourseDetailPage />
           </RequireAuth>
         } />
+        <Route path="/settings" element={
+          <RequireAuth>
+            <Settings />
+          </RequireAuth>
+        } />
+        <Route path="/testout" element={
+          <RequireAuth>
+            <TestOut />
+          </RequireAuth>
+        } />
       </Route>
 
-      <Route path="/settings" element={
+      <Route path="*" element={
         <RequireAuth>
-          <Settings />
+          <NotFoundPage />
         </RequireAuth>
-      } />
-
-      <Route path="*" element={<NotFoundPage />} />
+        } />
     </>
   )
 )

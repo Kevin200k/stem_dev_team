@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import styled from 'styled-components';
-import { ThemeContext } from '../context/ThemeContext'; // adjust this path
+// import { ThemeContext } from '../context/ThemeContext'
 
 const Switch = () => {
   const { darkMode, setDarkMode } = useContext(ThemeContext); // ⬅ get state and setter

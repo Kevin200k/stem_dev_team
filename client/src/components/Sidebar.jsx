@@ -59,7 +59,7 @@ const Sidebar = () => {
   }, [showSettings]);
 
   return (
-    <aside className='absolute md:relative bg-white w-96 md:w-56 h-full p-4 flex flex-col shadow-lg z-50'>
+    <aside className='absolute md:relative bg-white w-96 md:w-56 h-full p-4 flex flex-col z-50'>
 
       {/* Logo */}
       <div className="flex items-center justify-start mb-6 pl-2">

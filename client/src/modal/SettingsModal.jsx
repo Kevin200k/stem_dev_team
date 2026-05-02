@@ -16,7 +16,7 @@ const SettingsModal = ({ onClose, modalRef }) => {
         </div>
 
         <div>
-          <ToggleButton />
+          {/* <ToggleButton /> */}
         </div>
       </div>
 

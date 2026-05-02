@@ -37,6 +37,12 @@ const allSettings = [
     group: "Account",
     options: [
       {
+        label: "Update Profile Picture",
+        type: "action",
+        name: "update_profile_picture"
+
+      },
+      {
         label: "Change Password",
         type: "action",
         name: "change_password",
@@ -67,12 +73,13 @@ const Settings = () => {
   return (
     <>
 
-      <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+      {/* <div className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
         <TitleBar />
-      </div>
+      </div> */}
 
-      <div className="pt-24 px-4">
+      <div className="px-4 py-4 ">
         
+        {/* header */}
         <div className="flex items-center justify-between mb-6 pr-7">
           <h1 className="text-4xl font-bold text-purple-800">Settings</h1>
           
@@ -82,55 +89,70 @@ const Settings = () => {
           </NavLink>
         </div>
 
-        <div className="p-6 bg-white shadow-xl border border-gray-200 rounded-xl space-y-10">
-          {allSettings.map((group) => (
-            <div key={group.id}>
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">{group.group}</h2>
-              <div className="space-y-4">
-                {group.options.map((option, idx) => (
-                  <div
-                    key={idx}
-                    className={`flex items-center justify-between px-4 py-3 rounded-md ${
-                      option.danger ? 'bg-red-50 text-red-700' : 'bg-gray-50 text-gray-800'
-                    }`}
-                  >
-                    <span className="text-base">{option.label}</span>
+        <div className=' min-h-[calc(100vh-11rem)] - [5rem])] grid grid-cols-[1fr_2fr] '>
 
-                    {option.type === 'toggle' && (
-                      <select className="p-2 rounded-md border border-gray-300 bg-white">
-                        {option.values.map((val, i) => (
-                          <option key={i} value={val}>{val}</option>
-                        ))}
-                      </select>
-                    )}
-
-                    {option.type === 'switch' && (
-                      <input type="checkbox" className="w-5 h-5 accent-purple-600" />
-                    )}
-
-                    {option.type === 'dropdown' && (
-                      <select className="p-2 rounded-md border border-gray-300 bg-white">
-                        {option.values.map((val, i) => (
-                          <option key={i} value={val}>{val}</option>
-                        ))}
-                      </select>
-                    )}
-
-                    {option.type === 'action' && (
-                      <button
-                        className={`text-sm font-medium underline ${
-                          option.danger ? 'text-red-600' : 'text-blue-600'
-                        }`}
-                      >
-                        {option.label}
-                      </button>
-                    )}
-                  </div>
-                ))}
+          {/* first column */}
+          <div className='border-gray-200 border p-4 space-y-3 text-base'>
+            { allSettings.map((groupName) => (
+              <div key={ groupName.id }>
+                { groupName.group }
               </div>
-            </div>
-          ))}
+            )) }
+          </div>
+
+          {/* second column */}
+          <div className="p-6 border border-gray-200 space-y-10">
+            {allSettings.map((group) => (
+              <div key={group.id}>
+                <h2 className="text-xl font-semibold text-gray-800 mb-4">{group.group}</h2>
+                <div className="space-y-4">
+                  {group.options.map((option, idx) => (
+                    <div
+                      key={idx}
+                      className={`flex items-center justify-between px-4 py-3 rounded-md ${
+                        option.danger ? 'bg-red-50 text-red-700' : 'bg-gray-50 text-gray-800'
+                      }`}
+                    >
+                      <span className="text-base">{option.label}</span>
+
+                      {option.type === 'toggle' && (
+                        <select className="p-2 rounded-md border border-gray-300 bg-white">
+                          {option.values.map((val, i) => (
+                            <option key={i} value={val}>{val}</option>
+                          ))}
+                        </select>
+                      )}
+
+                      {option.type === 'switch' && (
+                        <input type="checkbox" className="w-5 h-5 accent-purple-600" />
+                      )}
+
+                      {option.type === 'dropdown' && (
+                        <select className="p-2 rounded-md border border-gray-300 bg-white">
+                          {option.values.map((val, i) => (
+                            <option key={i} value={val}>{val}</option>
+                          ))}
+                        </select>
+                      )}
+
+                      {option.type === 'action' && (
+                        <button
+                          className={`text-sm font-medium underline ${
+                            option.danger ? 'text-red-600' : 'text-blue-600'
+                          }`}
+                        >
+                          {option.label}
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
         </div>
+
       </div>
     </>
   );
